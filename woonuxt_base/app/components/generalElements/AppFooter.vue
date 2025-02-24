@@ -14,10 +14,9 @@ const { wishlistLink } = useAuth();
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">Information</div>
         <div class="text-sm">
-          <a class="py-1.5 block" href="https://github.com/scottyzen/woonuxt?tab=readme-ov-file#next-generation-front-end-for-woocommerce" target="_blank">About</a>
           <a href="/" class="py-1.5 block">Careers</a>
           <a href="/" class="py-1.5 block">Press</a>
-          <a href="https://woonuxt.com/faq" class="py-1.5 block" rel="noreferrer" target="_blank">FAQ's</a>
+          <a href="/" class="py-1.5 block">FAQ's</a>
         </div>
       </div>
       <div class="w-3/7 lg:w-auto">
@@ -26,7 +25,7 @@ const { wishlistLink } = useAuth();
           <NuxtLink to="/products" class="py-1.5 block">{{ $t('messages.shop.newArrivals') }}</NuxtLink>
           <NuxtLink to="/products?filter=sale[true]" class="py-1.5 block">On sale</NuxtLink>
           <NuxtLink to="/products?orderby=rating&order=ASC&filter=rating[1]" class="py-1.5 block">Top rated</NuxtLink>
-          <a href="/" class="py-1.5 block">{{ $t('messages.shop.giftCards') }}</a>
+          <!-- <a href="/" class="py-1.5 block">{{ $t('messages.shop.giftCards') }}</a> -->
         </div>
       </div>
       <div class="w-3/7 lg:w-auto">
