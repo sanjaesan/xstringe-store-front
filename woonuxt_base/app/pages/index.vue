@@ -21,16 +21,16 @@ useSeoMeta({
 <template>
   <main>
     <HeroBanner />
-
     <div class="container flex flex-wrap items-center justify-center my-16 text-center gap-x-8 gap-y-4 brand lg:justify-between">
       <img src="/images/asus.svg" alt="Brand 1" width="70" height="30" />
-      <img src="/images/razer.svg" alt="Brand 2" width="70" height="30" />
-      <img src="/images/logitech.svg" alt="Brand 5" width="65" height="25" />
-      <img src="/images/alien.svg" alt="Brand 3" width="70" height="30" />
-      <img src="/images/msi.svg" alt="Brand 4" width="80" height="35" />
-      <img src="/images/nvidia.svg" alt="Brand 5" width="80" height="35" />
-      <img src="/images/lenovo.svg" alt="Brand 6" width="150" height="30" />
-      <img src="/images/predator.svg" alt="Brand 6" width="85" height="30" />
+      <img src="/images/razer.svg" alt="Brand 2" width="60" height="30" />
+      <img src="/images/lenovo.svg" alt="Brand 3" width="100" height="30" />
+      <img src="/images/alien.svg" alt="Brand 4" width="70" height="30" />
+      <img src="/images/msi.svg" alt="Brand 5" width="80" height="35" />
+      <img src="/images/nvidia.svg" alt="Brand 6" width="70" height="35" />
+      <img src="/images/logitech.svg" alt="Brand 7" width="50" height="25" />
+      <img src="/images/predator.svg" alt="Brand 8" width="65" height="30" />
+      <img src="/images/starlinkb.svg" alt="Brand 9" width="115" height="70" />
     </div>
 
     <section class="container my-16">
@@ -45,31 +45,31 @@ useSeoMeta({
 
     <section class="container grid gap-4 my-24 md:grid-cols-2 lg:grid-cols-4">
       <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/box.svg" width="60" height="60" alt="Free Shipping" loading="lazy" />
+        <img src="/icons/shipping.svg" width="60" height="60" alt="Free Shipping" loading="lazy" />
         <div>
           <h3 class="text-xl font-semibold">Free Shipping</h3>
-          <p class="text-sm">Free shipping on order over €50</p>
+          <p class="text-sm">All Desktop come with free shipping</p>
         </div>
       </div>
       <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/moneyback.svg" width="60" height="60" alt="Money Back" loading="lazy" />
+        <img src="/icons/call.svg" width="60" height="60" alt="Money Back" loading="lazy" />
         <div>
-          <h3 class="text-xl font-semibold">Peace of Mind</h3>
-          <p class="text-sm">30 days money back guarantee</p>
+          <h3 class="text-xl font-semibold">Support</h3>
+          <p class="text-sm">We provide 24/7 support.</p>
         </div>
       </div>
       <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/secure.svg" width="60" height="60" alt="Secure Payment" loading="lazy" />
+        <img src="/icons/certified.svg" width="60" height="60" alt="Secure Payment" loading="lazy" />
         <div>
-          <h3 class="text-xl font-semibold">100% Payment Secure</h3>
-          <p class="text-sm">Your payment are safe with us.</p>
+          <h3 class="text-xl font-semibold">Certified</h3>
+          <p class="text-sm">We offer satisfactory product.</p>
         </div>
       </div>
       <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/support.svg" width="60" height="60" alt="Support 24/7" loading="lazy" />
+        <img src="/icons/warranty.svg" width="60" height="60" alt="Support 24/7" loading="lazy" />
         <div>
-          <h3 class="text-xl font-semibold">Support 24/7</h3>
-          <p class="text-sm">24/7 Online support</p>
+          <h3 class="text-xl font-semibold">Standard warranty</h3>
+          <p class="text-sm">We provide 2 years warranty</p>
         </div>
       </div>
     </section>
