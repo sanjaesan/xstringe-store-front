@@ -4,10 +4,20 @@ const { wishlistLink } = useAuth();
 
 <template>
   <nav>
-    <NuxtLink to="/">{{ $t('messages.general.home') }}</NuxtLink>
-    <NuxtLink to="/products">{{ $t('messages.general.allProducts') }}</NuxtLink>
-    <NuxtLink to="/categories">{{ $t('messages.shop.category', 2) }}</NuxtLink>
-    <NuxtLink class="lg:hidden" :to="wishlistLink" :prefetch="false">Wishlist</NuxtLink>
-    <NuxtLink class="lg:hidden" to="/my-account" :prefetch="false">My Account</NuxtLink>
+    <NuxtLink to="/">
+      <span class="text-crimson">{{ $t('messages.general.home') }}</span>
+    </NuxtLink>
+    <NuxtLink to="/products">
+      <span class="text-crimson">{{ $t('messages.general.allProducts') }}</span>
+    </NuxtLink>
+    <NuxtLink to="/categories" class="text-red-4"> 
+      <span class="text-crimson">{{ $t('messages.shop.category', 2) }}</span>
+    </NuxtLink>
+    <NuxtLink class="lg:hidden text-red" :to="wishlistLink" :prefetch="false">
+      <span class="text-crimson">Wishlist</span>
+    </NuxtLink>
+    <NuxtLink class="lg:hidden text-red" to="/my-account" :prefetch="false">
+      <span class="text-crimson">My Account</span>
+    </NuxtLink>
   </nav>
 </template>
