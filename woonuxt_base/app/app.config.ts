@@ -5,10 +5,10 @@
  */
 export default defineAppConfig({
   siteName: 'Xstringe',
-  shortDescription: 'Xstringe store front built with nuxt and woocomerce.',
+  shortDescription: 'Xstringe store front.',
   description: `Xstringe is an e-commerce platform dedicated to providing high-quality and high-performance workstations for creative professionals`,
   baseUrl: 'https://xstringe.shop',
-  siteImage: 'https://user-images.githubusercontent.com/5116925/218879668-f4c1f9fd-bef4-44b0-bc7f-e87d994aa3a1.png',
+  siteImage: 'https://xstringe.shop/wp-content/uploads/2025/02/xstringe-logo-black.png',
   storeSettings: {
     autoOpenCart: false,
     showReviews: true,
