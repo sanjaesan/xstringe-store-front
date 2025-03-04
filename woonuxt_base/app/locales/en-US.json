@@ -18,6 +18,10 @@
       "home": "Home",
       "allProducts": "Products",
       "product": "Product",
+      "laptop": "Laptop",
+      "desktop": "Desktop",
+      "accessories": "Accessories",
+      "custom": "Ready To Ship",
       "contact": "Contact",
       "menu": "Menu",
       "color": "Color",
@@ -72,6 +76,7 @@
     },
     "shop": {
       "shopByCategory": "Shop by Category",
+      "newProduct": "Just Arrived",
       "popularProducts": "Popular Products",
       "availability": "Availability",
       "inStock": "In Stock",
