@@ -5,8 +5,11 @@ const { siteName, description, shortDescription, siteImage } = useAppConfig();
 const { data } = await useAsyncGql('getProductCategories', { first: 6 });
 const productCategories = data.value?.productCategories?.nodes || [];
 
-const { data: productData } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.POPULARITY });
-const popularProducts = productData.value.products?.nodes || [];
+const { data: productData1 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.DATE });
+const newProducts = productData1.value.products?.nodes || [];
+
+const { data: productData2 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.POPULARITY });
+const popularProducts = productData2.value.products?.nodes || [];
 
 useSeoMeta({
   title: `Home`,
@@ -32,23 +35,21 @@ useSeoMeta({
       <img src="/images/predator.svg" alt="Brand 8" width="65" height="30" />
       <img src="/images/starlink.svg" alt="Brand 9" width="115" height="70" />
     </div>
-
-    <section class="container my-16">
+    <section class="container my-16" v-if="newProducts">
       <div class="flex items-end justify-between">
-        <h2 class="text-lg font-semibold md:text-2xl text-crimson">{{ $t('messages.shop.shopByCategory') }}</h2>
-        <NuxtLink class="text-maroon" to="/categories">{{ $t('messages.general.viewAll') }}</NuxtLink>
+        <h2 class="text-lg font-semibold md:text-2xl text-crimson">{{ $t('messages.shop.newProduct') }}</h2>
+        <NuxtLink class="text-maroon" to="/products">{{ $t('messages.general.viewAll') }}</NuxtLink>
       </div>
-      <div class="grid justify-center grid-cols-2 gap-4 mt-8 md:grid-cols-3 lg:grid-cols-6">
-        <CategoryCard v-for="(category, i) in productCategories" :key="i" class="w-full" :node="category" />
-      </div>
+      <ProductRow :products="newProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
+    
 
     <section class="container grid gap-4 my-24 md:grid-cols-2 lg:grid-cols-4">
       <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
         <img src="/icons/shipping.svg" width="60" height="60" alt="Free Shipping" loading="lazy" />
         <div>
           <h3 class="text-xl font-semibold">Free Shipping</h3>
-          <p class="text-sm">All Desktop come with free shipping</p>
+          <p class="text-sm">Desktops come with free shipping</p>
         </div>
       </div>
       <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
@@ -73,7 +74,6 @@ useSeoMeta({
         </div>
       </div>
     </section>
-
     <section class="container my-16" v-if="popularProducts">
       <div class="flex items-end justify-between">
         <h2 class="text-lg font-semibold md:text-2xl text-crimson">{{ $t('messages.shop.popularProducts') }}</h2>
@@ -81,6 +81,15 @@ useSeoMeta({
       </div>
       <ProductRow :products="popularProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
+    <!-- <section class="container my-16">
+      <div class="flex items-end justify-between">
+        <h2 class="text-lg font-semibold md:text-2xl text-crimson">{{ $t('messages.shop.shopByCategory') }}</h2>
+        <NuxtLink class="text-maroon" to="/categories">{{ $t('messages.general.viewAll') }}</NuxtLink>
+      </div>
+      <div class="grid justify-center grid-cols-2 gap-4 mt-8 md:grid-cols-3 lg:grid-cols-6">
+        <CategoryCard v-for="(category, i) in productCategories" :key="i" class="w-full" :node="category" />
+      </div>
+    </section> -->
   </main>
 </template>
 
