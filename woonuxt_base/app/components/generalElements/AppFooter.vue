@@ -31,7 +31,7 @@ const { wishlistLink } = useAuth();
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">{{ $t('messages.general.customerService') }}</div>
         <div class="text-sm">
-          <NuxtLink to="/contact" class="py-1.5 block">Contact Us</NuxtLink>
+          <NuxtLink to="/" class="py-1.5 block">Contact Us</NuxtLink>
           <a href="/" class="py-1.5 block">Shipping & Returns</a>
           <a href="/" class="py-1.5 block">Privacy Policy</a>
           <a href="/" class="py-1.5 block">Terms & Conditions</a>
