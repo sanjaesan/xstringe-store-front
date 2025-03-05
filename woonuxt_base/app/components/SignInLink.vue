@@ -4,7 +4,7 @@ const linkTitle = computed<string>(() => viewer.value?.username || 'Sign In');
 </script>
 
 <template>
-  <NuxtLink to="/my-account" :title="linkTitle" class="hidden sm:inline-flex aspect-square items-center">
+  <NuxtLink to="/my-account" :title="linkTitle" class="hidden sm:inline-flex signin-icons aspect-square items-center">
     <Transition name="pop-in" mode="out-in">
       <span v-if="avatar" class="relative avatar">
         <img
@@ -51,6 +51,12 @@ const linkTitle = computed<string>(() => viewer.value?.username || 'Sign In');
 
   &:hover .account-dropdown {
     @apply grid;
+  }
+}
+
+.signin-icons {
+  .iconify  {
+    color: #ff0000;
   }
 }
 </style>
