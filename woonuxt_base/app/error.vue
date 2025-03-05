@@ -25,7 +25,7 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen bg-night">
     <AppHeader />
 
     <Transition name="slide-from-right">
@@ -36,7 +36,7 @@ useSeoMeta({
       <MobileMenu v-if="isShowingMobileMenu" />
     </Transition>
 
-    <div class="flex flex-col items-center justify-center flex-1 gap-4 min-h-[500px]">
+    <div class="flex flex-col items-center text-gray-300 justify-center flex-1 gap-4 min-h-[500px]">
       <h1 class="text-6xl font-bold">Error {{ error?.statusCode || '404' }}</h1>
       <p v-if="error?.message" class="text-lg">{{ error.message }}</p>
     </div>
