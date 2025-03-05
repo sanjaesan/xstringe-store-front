@@ -36,14 +36,16 @@ watch(
   },
 );
 
-const imgWidth = 640;
+const imgWidth = 480;
+
+const galleryImgWidth = 180;
 </script>
 
 <template>
   <div>
-    <SaleBadge :node class="absolute text-base top-4 right-4" />
+    <SaleBadge :node="node" class="absolute text-base top-4 right-4" />
     <NuxtImg
-      class="rounded-xl object-contain w-full min-w-[350px]"
+      class="rounded-xl object-contain w-full min-w-[320px]"
       :width="imgWidth"
       :height="imgWidth"
       :alt="imageToShow.altText || node.name"
@@ -52,13 +54,14 @@ const imgWidth = 640;
       fetchpriority="high"
       placeholder
       placeholder-class="blur-xl" />
+
     <div v-if="gallery.nodes.length" class="my-4 gallery-images">
       <NuxtImg
         v-for="galleryImg in galleryImages"
         :key="galleryImg.databaseId"
         class="cursor-pointer rounded-xl"
-        :width="imgWidth"
-        :height="imgWidth"
+        :width="galleryImgWidth+24"
+        :height="galleryImgWidth"
         :src="galleryImg.sourceUrl"
         :alt="galleryImg.altText || node.name"
         :title="galleryImg.title || node.name"
@@ -82,7 +85,7 @@ const imgWidth = 640;
 }
 
 .gallery-images img {
-  width: 72px;
+  height: 72px;
   aspect-ratio: 5/6;
   object-fit: cover;
 }

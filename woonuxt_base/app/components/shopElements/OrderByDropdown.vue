@@ -14,7 +14,7 @@ watch([orderby, order], () => {
 <template>
   <div class="inline-flex ml-auto -space-x-px shadow-sm rounded-m isolate">
     <button
-      class="relative inline-flex items-center px-2 py-3 text-sm font-medium text-gray-500 bg-white hover:bg-white border border-gray-300 rounded-l-md focus:z-20 focus-none outline-none"
+      class="relative inline-flex items-center px-2 py-3 text-sm font-medium text-gray-300 bg-white hover:bg-white border border-gray-300 rounded-l-md focus:z-20 focus-none outline-none"
       aria-label="Sort"
       @click="order = order === 'ASC' ? 'DESC' : 'ASC'">
       <Icon name="ion:filter-outline" size="18" :class="order === 'ASC' ? 'rotate-180' : ''" class="transition-transform transform transform-origin-center" />

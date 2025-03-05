@@ -13,7 +13,7 @@ const { theList } = useWishlist();
         <ul v-if="theList.length" class="grid divide-y divide-gray-100">
           <WishListItem v-for="product in theList" :key="product.databaseId" :product="product" />
         </ul>
-        <div v-else class="flex text-center min-h-[600px] text-gray-500 items-center justify-center">
+        <div v-else class="flex text-center min-h-[600px] text-gray-300 items-center justify-center">
           <p>{{ $t('messages.shop.wishlistNoItems') }}</p>
         </div>
       </client-only>

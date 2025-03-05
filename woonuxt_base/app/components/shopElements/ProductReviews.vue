@@ -23,7 +23,7 @@ const props = defineProps({
             <StarRating :rating="review.rating" :hide-count="true" class="text-sm" />
           </div>
         </div>
-        <div class="mt-4 text-gray-700 italic prose-sm" v-html="review.node.content"></div>
+        <div class="mt-4 text-gray-300 italic prose-sm" v-html="review.node.content"></div>
       </div>
     </div>
   </div>

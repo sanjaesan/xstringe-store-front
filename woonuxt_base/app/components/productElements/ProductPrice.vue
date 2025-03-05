@@ -9,7 +9,7 @@ const { regularPrice, salePrice } = defineProps<ProductPriceProps>();
 
 <template>
   <div v-if="regularPrice" class="flex font-semibold">
-    <span :class="{ 'text-gray-300 line-through font-normal': salePrice }" v-html="regularPrice" />
-    <span v-if="salePrice" class="ml-2" v-html="salePrice" />
+    <span class="" :class="[salePrice ? 'text-crimson line-through font-normal': 'text-gray-300' ]" v-html="regularPrice" />
+    <span v-if="salePrice" class="ml-2 text-gray-400" v-html="salePrice" />
   </div>
 </template>

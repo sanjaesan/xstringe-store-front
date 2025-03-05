@@ -21,7 +21,7 @@ const setActiveOption = async (id) => {
       :class="{ 'active-option': option.id === activeOption }"
       @click="setActiveOption(option.id)">
       <div>
-        <div class="text-sm leading-tight text-gray-500" v-html="option.label"></div>
+        <div class="text-sm leading-tight text-gray-300" v-html="option.label"></div>
         <div class="font-semibold text-gray-600">{{ currencySymbol }}{{ option.cost }}</div>
       </div>
 

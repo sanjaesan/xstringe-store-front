@@ -26,14 +26,14 @@ useSeoMeta({
               <div class="text-lg font-semibold">Welcome, {{ viewer?.firstName }}</div>
               <span v-if="viewer?.email" class="text-gray-400 font-light" :title="viewer?.email">{{ viewer?.email }}</span>
             </div>
-            <button class="flex text-gray-700 items-center flex-col p-2 px-4 rounded-lg hover:bg-white hover:text-red-700 lg:hidden" @click="logoutUser">
+            <button class="flex text-gray-300 items-center flex-col p-2 px-4 rounded-lg hover:bg-white hover:text-red-700 lg:hidden" @click="logoutUser">
               <LoadingIcon v-if="isPending" size="22" color="#B91C1B" />
               <Icon v-else name="ion:log-out-outline" size="22" />
               <small>{{ $t('messages.account.logout') }}</small>
             </button>
           </section>
           <hr class="my-8" />
-          <nav class="flex text-gray-700 lg:grid flex-wrap w-full gap-1.5 my-8 min-w-[240px] lg:w-auto items-start">
+          <nav class="flex text-gray-300 lg:grid flex-wrap w-full gap-1.5 my-8 min-w-[240px] lg:w-auto items-start">
             <NuxtLink to="/my-account?tab=my-details" class="flex items-center gap-4 p-2 px-4" :class="{ active: activeTab == 'my-details' }">
               <Icon name="ion:information-circle-outline" size="22" />
               {{ $t('messages.general.myDetails') }}
@@ -53,7 +53,7 @@ useSeoMeta({
           </nav>
           <template class="hidden lg:block">
             <hr class="my-8" />
-            <button class="flex text-gray-700 items-center gap-4 p-2 px-4 w-full rounded-lg hover:bg-white hover:text-red-700" @click="logoutUser">
+            <button class="flex text-gray-300 items-center gap-4 p-2 px-4 w-full rounded-lg hover:bg-white hover:text-red-700" @click="logoutUser">
               <LoadingIcon v-if="isPending" size="22" />
               <Icon v-else name="ion:log-out-outline" size="22" />
               {{ $t('messages.account.logout') }}

@@ -179,7 +179,7 @@ useSeoMeta({
         </div>
       </div>
       <div v-else-if="errorMessage" class="flex flex-col items-center justify-center flex-1 w-full gap-4 text-center">
-        <Icon name="ion:sad-outline" size="96" class="text-gray-700" />
+        <Icon name="ion:sad-outline" size="96" class="text-gray-300" />
         <h1 class="text-xl font-semibold">Error</h1>
         <div v-if="errorMessage" class="text-sm text-red-500" v-html="errorMessage" />
       </div>

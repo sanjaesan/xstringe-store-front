@@ -83,7 +83,9 @@ const disabledAddToCart = computed(() => {
       <SEOHead :info="product" />
       <Breadcrumb :product class="mb-6" v-if="storeSettings.showBreadcrumbOnSingleProduct" />
 
-      <div class="flex flex-col gap-10 md:flex-row md:justify-between lg:gap-24">
+      <div class="grid grid-cols-2 gap-12 lg:gap-24">
+       <div>
+        <div class="sticky top-20">
         <ProductImageGallery
           v-if="product.image"
           class="relative flex-1"
@@ -92,17 +94,19 @@ const disabledAddToCart = computed(() => {
           :node="type"
           :activeVariation="activeVariation || {}" />
         <NuxtImg v-else class="relative flex-1 skeleton" src="/images/placeholder.jpg" :alt="product?.name || 'Product'" />
+       </div>
+       </div>
 
         <div class="lg:max-w-md xl:max-w-lg md:py-2 w-full">
           <div class="flex justify-between mb-4">
-            <div class="flex-1">
-              <h1 class="flex flex-wrap items-center gap-2 mb-2 text-2xl font-sesmibold">
+            <div class="flex-1 text-gray-300">
+              <h1 class="flex flex-wrap items-center gap-2 mb-2 text-2xl font-semibold">
                 {{ type.name }}
                 <LazyWPAdminLink :link="`/wp-admin/post.php?post=${product.databaseId}&action=edit`">Edit</LazyWPAdminLink>
               </h1>
               <StarRating :rating="product.averageRating || 0" :count="product.reviewCount || 0" v-if="storeSettings.showReviews" />
             </div>
-            <ProductPrice class="text-xl" :sale-price="type.salePrice" :regular-price="type.regularPrice" />
+            <ProductPrice class="text-xl text-crimson lighten-2" :sale-price="type.salePrice" :regular-price="type.regularPrice" />
           </div>
 
           <div class="grid gap-2 my-8 text-sm empty:hidden">
@@ -116,8 +120,10 @@ const disabledAddToCart = computed(() => {
             </div>
           </div>
 
-          <div class="mb-8 font-light prose" v-html="product.shortDescription || product.description" />
+          <div class="mb-8 font-medium prose text-gray-300" v-html="product.shortDescription || product.description" />
 
+          <hr />
+          <ProductCore />
           <hr />
 
           <form @submit.prevent="addToCart(selectProductInput)">
@@ -137,7 +143,7 @@ const disabledAddToCart = computed(() => {
                 min="1"
                 aria-label="Quantity"
                 class="bg-white border rounded-lg flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none" />
-              <AddToCartButton class="flex-1 w-full md:max-w-xs" :disabled="disabledAddToCart" :class="{ loading: isUpdatingCart }" />
+              <AddToCartButton class="flex-1 w-full" :disabled="disabledAddToCart" :class="{ loading: isUpdatingCart }" />
             </div>
             <a
               v-if="isExternalProduct && product.externalUrl"
@@ -157,7 +163,7 @@ const disabledAddToCart = computed(() => {
                     v-for="category in product.productCategories.nodes"
                     :key="category.databaseId"
                     :to="`/product-category/${decodeURIComponent(category?.slug || '')}`"
-                    class="hover:text-primary"
+                    class="text-gray-300 hover:text-crimson"
                     :title="category.name"
                     >{{ category.name }}<span class="comma">, </span>
                   </NuxtLink>

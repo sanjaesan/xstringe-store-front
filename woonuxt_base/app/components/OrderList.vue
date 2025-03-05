@@ -44,7 +44,7 @@ const goToOrder = (orderNumber: string): void => {
         </button>
       </div>
     </div>
-    <div v-else-if="orders && orders.length === 0" class="min-h-[250px] flex items-center justify-center text-gray-500 text-lg">No orders found.</div>
+    <div v-else-if="orders && orders.length === 0" class="min-h-[250px] flex items-center justify-center text-gray-300 text-lg">No orders found.</div>
     <LoadingIcon v-else size="24" stroke="2" />
   </div>
 </template>
@@ -55,7 +55,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr {
-  @apply text-sm text-gray-500 hover:text-gray-800;
+  @apply text-sm text-gray-300 hover:text-gray-400;
 }
 
 td,

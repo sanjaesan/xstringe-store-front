@@ -34,7 +34,7 @@ onMounted(() => {
       <icon name="ion:checkmark-circle" size="20" class="ml-auto text-primary checkmark opacity-0" />
     </div>
     <div v-if="activePaymentMethod.description" class="prose block w-full">
-      <p class="text-sm text-gray-500" v-html="activePaymentMethod.description" />
+      <p class="text-sm text-gray-300" v-html="activePaymentMethod.description" />
     </div>
   </div>
 </template>
