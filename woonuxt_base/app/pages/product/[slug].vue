@@ -116,9 +116,12 @@ const disabledAddToCart = computed(() => {
             </div>
           </div>
 
-          <div class="mb-8 font-light prose" v-html="product.shortDescription || product.description" />
-
+          <div class="mb-8 font-light prose" v-html="product.shortDescription" />
           <hr />
+          <div class="flex justify-between mb-4">
+            <span class="text-black-800 mt-2 font-bold">{{ $t('messages.shop.specification')}}</span>
+            <!-- <div class="mt-2">SPECIFICATION DROPDOWN MENU GOES HERE</div> -->
+          </div>
 
           <form @submit.prevent="addToCart(selectProductInput)">
             <AttributeSelections
