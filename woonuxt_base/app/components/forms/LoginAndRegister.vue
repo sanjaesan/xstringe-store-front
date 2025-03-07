@@ -1,9 +1,8 @@
 <template>
   <div class="max-w-lg mx-auto my-16 min-h-[600px] text-center">
-    <Logo />
     <div class="flex flex-col my-2">
       <h1 class="text-xl font-semibold lg:text-3xl">{{ formTitle }}</h1>
-      <p class="text-gray-500 mt-2">Welcome back! Select method to login.</p>
+      <p class="text-gray-700 mt-2">Welcome back! Select method to login.</p>
     </div>
 
     <LoginProviders class="my-8" v-if="formView === 'login' || formView === 'register'" />

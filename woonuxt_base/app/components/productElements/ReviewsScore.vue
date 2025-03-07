@@ -65,8 +65,8 @@ async function addComment() {
 
 <template>
   <div>
-    <h4 v-if="reviews.edges.length" class="font-semibold text-2xl text-gray-900">{{ $t('messages.shop.customerReviews') }}</h4>
-    <h4 v-else class="font-semibold text-2xl text-gray-900">{{ $t('messages.shop.noReviews') }}</h4>
+    <h4 v-if="reviews.edges.length" class="font-semibold text-2xl text-black-900">{{ $t('messages.shop.customerReviews') }}</h4>
+    <h4 v-else class="font-semibold text-2xl text-black-900">{{ $t('messages.shop.noReviews') }}</h4>
     <div v-if="reviews.edges.length" class="my-2">
       <StarRating :rating="reviews.averageRating" :hide-count="true" class="text-sm mr-2" />
       <span class="text-sm"> {{ $t('messages.general.basedOn') }} {{ reviews.edges.length }} {{ $t('messages.shop.reviews') }}</span>
@@ -78,19 +78,19 @@ async function addComment() {
           <Icon class="text-yellow-400" name="ion:star" />
         </div>
         <div class="flex-1 relative">
-          <div class="rounded-full bg-gray-200 h-2.5 w-full"></div>
+          <div class="rounded-full bg-black-200 h-2.5 w-full"></div>
           <div class="rounded-full bg-yellow-400 h-2.5 top-0 left-0 absolute" :style="{ width: rating.percentage + '%' }"></div>
         </div>
       </div>
     </div>
-    <div class="mt-10 text-xl mb-2 text-gray-900">Share your thoughts</div>
+    <div class="mt-10 text-xl mb-2 text-black-900">Share your thoughts</div>
     <div class="text-sm mb-4">If you have used this product, we would love to hear about your experience.</div>
     <button @click="show = !show" class="border rounded-lg text-center w-full p-2">
       {{ show ? $t('messages.shop.close') : $t('messages.shop.writeReview') }}
     </button>
     <transition class="ease-in-out transform transition-all" name="scale-y">
       <form v-if="show" @submit.prevent="addComment" class="writeReview">
-        <div class="w-full text-gray-500">
+        <div class="w-full text-black-500">
           <div class="p-5 mt-3 grid gap-2 border rounded-lg">
             <div class="block text-center mb-1.5">
               <label class="text-center text-sm block relative m-auto">{{ $t('messages.shop.rateReview') }} <span class="text-red-500">*</span></label>

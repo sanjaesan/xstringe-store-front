@@ -23,7 +23,7 @@ useSeoMeta({
 
 <template>
   <main>
-    <HeroBanner />
+    <HeroSlider />
     <div class="container flex flex-wrap items-center justify-center my-16 text-center gap-x-8 gap-y-4 brand lg:justify-between">
       <img src="/images/asus.svg" alt="Brand 1" width="70" height="30" />
       <img src="/images/razer.svg" alt="Brand 2" width="60" height="30" />
