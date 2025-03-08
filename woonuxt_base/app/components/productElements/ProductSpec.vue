@@ -59,7 +59,7 @@ const specs = [
         img: 'https://cdn.shopify.com/s/files/1/0228/7629/1136/files/MAGA750GL.png?v=1719524578',
     },{
         title: 'Memory.',
-        content: '16GB DDR4 3600MHz T-Force Delta RGB (2X 8GB)',
+        content: '16GB DDR4 3600MHz T-Force Delta RGB',
         img: 'https://cdn.shopify.com/s/files/1/0228/7629/1136/files/DDR43200MHzT-FORCERGBX4_164f42cc-8816-4df1-8559-c4c5e9a70453.png?v=1683212143',
     },{
         title: 'Operating system drive.',
