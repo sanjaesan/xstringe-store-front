@@ -4,7 +4,7 @@ const { wishlistLink } = useAuth();
 
 <template>
   <nav>
-    <NuxtLink class="hover:text-primary relative inline-flex items-center" to="/product-category/custom">
+    <NuxtLink class="hover:text-primary relative inline-flex items-center" to="/product-category/made-to-order">
       {{ $t('messages.general.madeToOrder') }}
       <!-- <span class="absolute top-[-1.5em] right-[-3em] bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">New!</span> -->
     </NuxtLink>
