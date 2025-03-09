@@ -13,7 +13,7 @@ const themeTitle = computed(() =>
 
 <template>
   <div
-    class="relative cursor-pointer inline-flex"
+    class="relative cursor-pointer inline-flex theme-icons"
     :title="themeTitle"
     @click="toggleTheme(!isDark)"
   >
@@ -36,5 +36,11 @@ const themeTitle = computed(() =>
 .popIn-enter-from,
 .popIn-leave-to {
   transform: scale(0);
+}
+
+.theme-icons {
+  .iconify:hover {
+    @apply text-crimson
+  }
 }
 </style>

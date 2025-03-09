@@ -1,5 +1,5 @@
 <template>
-    <div class="relative" :class="[isAccordion ? 'bg-night-shade pb-1' : 'bg-night-shade rounded-xl mb-4']">
+    <div class="relative" :class="[isAccordion ? 'bg-gray-800 dark:bg-night-shade pb-1' : 'bg-gray-800 dark:bg-night-shade rounded-xl mb-4']">
       <button type="button" class="w-full p-4 text-left" :class="{ 'px-0': isAccordion }" @click="onActive">
         <div class="flex items-center justify-between">
           <span class="text-black-300 whitespace-nowrap">

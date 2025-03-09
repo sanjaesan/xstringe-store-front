@@ -18,12 +18,12 @@
             />
             <div class="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-l from-gray-200 md:bg-none">
               <div class="container">
-                <h1 class="text-3xl font-bold md:mb-4 md:text-4xl lg:text-5xl">{{ slide.title }}</h1>
-                <h2 class="text-lg font-bold md:mb-4 lg:text-3xl">{{ slide.subtitle }}</h2>
-                <div class="max-w-sm mb-8 text-md font-light lg:max-w-md text-balance">
+                <h1 class="text-3xl text-crimson font-bold md:mb-4 md:text-4xl lg:text-5xl shadow-sm" :class="[slide.class ? slide.class.title : null]">{{ slide.title }}</h1>
+                <h2 class="text-lg font-bold md:mb-4 lg:text-3xl" :class="[slide.class ? slide.class.subtitle : null]">{{ slide.subtitle }}</h2>
+                <div class="max-w-sm mb-8 text-md font-medium lg:max-w-md text-balance text-gray-800" :class="[slide.class ? slide.class.description : null]">
                   <p>{{ slide.description }}</p>
                 </div>
-                <NuxtLink class="px-6 py-3 font-bold text-white bg-gray-800 rounded-xl hover:bg-gray-800" :to="slide.link">Shop now</NuxtLink>
+                <NuxtLink class="px-6 py-3 font-normal text-white bg-gray-800 rounded-xl hover:bg-gray-800 dark:bg-night-shade hover:text-gray-200 dark:hover:bg-night-shadow" :class="[slide.class ? slide.class.actionButton : null]" :to="slide.link">{{slide.actionText}}</NuxtLink>
               </div>
             </div>
           </div>

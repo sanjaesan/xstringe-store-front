@@ -24,7 +24,7 @@ const attributesWithTerms = globalProductAttributes.map((attr) => ({ ...attr, te
 <template>
   <aside id="filters">
     <OrderByDropdown class="block w-full md:hidden" />
-    <div class="relative z-30 grid mb-12 space-y-1 divide-y">
+    <div class="relative z-30 grid mb-12 space-y-8 divide-y dark:text-gray-300">
       <PriceFilter />
       <CategoryFilter v-if="!hideCategories" :terms="productCategoryTerms" />
       <div v-for="attribute in attributesWithTerms" :key="attribute.slug">

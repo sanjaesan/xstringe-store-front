@@ -41,7 +41,7 @@ thead tr {
 }
 
 tbody tr {
-  @apply text-xs sm:text-sm text-gray-500;
+  @apply text-xs sm:text-sm text-gray-500 dark:text-gray-300;
 }
 
 td,

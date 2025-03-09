@@ -56,7 +56,7 @@ const imagetoDisplay = computed<string>(() => {
     <div class="p-2">
       <ProductPrice class="text-sm" :sale-price="node.salePrice" :regular-price="node.regularPrice" />
       <NuxtLink v-if="node.slug" :to="`/product/${decodeURIComponent(node.slug)}`" :title="node.name">
-        <h2 class="mb-2 font-light leading-tight group-hover:text-primary">{{ node.name }}</h2>
+        <h2 class="mb-2 font-medium leading-tight group-hover:text-primary dark:text-gray-200">{{ node.name }}</h2>
       </NuxtLink>
       <StarRating v-if="storeSettings.showReviews" :rating="node.averageRating" :count="node.reviewCount" />
     </div>

@@ -3,7 +3,7 @@ const { toggleCart, cart } = useCart();
 </script>
 
 <template>
-  <div class="relative cursor-pointer inline-flex" title="Cart" @click="toggleCart">
+  <div class="relative cursor-pointer inline-flex cart-icons" title="Cart" @click="toggleCart">
     <Icon name="ion:cart-outline" size="22" class="mr-1 md:mr-0" />
     <ClientOnly>
       <Transition name="popIn" mode="out-in">
@@ -27,5 +27,15 @@ const { toggleCart, cart } = useCart();
 .popIn-enter-from,
 .popIn-leave-to {
   transform: scale(0);
+}
+
+.cart-icons {
+  .iconify  {
+
+    &:hover {
+      @apply text-crimson
+    }
+  }
+
 }
 </style>

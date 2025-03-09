@@ -21,6 +21,8 @@ const applyPrice = () => {
 watch(isFiltersActive, () => {
   if (!isFiltersActive.value) resetSlider();
 });
+
+const inputClass = "rounded-lg max-w-full border-0 focus-none outline-none leading-none w-auto p-2 pl-6 md:text-sm"
 </script>
 
 <template>
@@ -34,7 +36,7 @@ watch(isFiltersActive, () => {
         <input
           id="price-from"
           v-model="price[0]"
-          class="bg-white border rounded-lg max-w-full border-gray-200 leading-none w-auto p-2 pl-6 md:text-sm"
+          :class="inputClass"
           type="number"
           placeholder="From"
           min="0" />
@@ -44,7 +46,7 @@ watch(isFiltersActive, () => {
         <input
           id="price-to"
           v-model="price[1]"
-          class="bg-white border rounded-lg max-w-full border-gray-200 leading-none w-auto p-2 pl-6 md:text-sm"
+          :class="inputClass"
           type="number"
           placeholder="Up to"
           min="1" />

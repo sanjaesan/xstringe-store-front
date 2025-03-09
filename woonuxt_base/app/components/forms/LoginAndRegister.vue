@@ -1,8 +1,8 @@
 <template>
   <div class="max-w-lg mx-auto my-16 min-h-[600px] text-center">
     <div class="flex flex-col my-2">
-      <h1 class="text-xl font-semibold lg:text-3xl">{{ formTitle }}</h1>
-      <p class="text-gray-700 mt-2">Welcome back! Select method to login.</p>
+      <h1 class="text-xl font-semibold dark:text-gray-300 lg:text-3xl">{{ formTitle }}</h1>
+      <p class="text-gray-700 dark:text-gray-400 mt-2">Welcome back! Select method to login.</p>
     </div>
 
     <LoginProviders class="my-8" v-if="formView === 'login' || formView === 'register'" />
@@ -11,7 +11,7 @@
       <div v-if="formView === 'register' || formView === 'forgotPassword'" for="email">
         <input id="email" v-model="userInfo.email" :placeholder="inputPlaceholder.email" autocomplete="email" type="text" required />
       </div>
-      <p v-if="formView === 'forgotPassword'" class="text-sm text-gray-500">{{ $t('messages.account.enterEmailOrUsernameForReset') }}</p>
+      <p v-if="formView === 'forgotPassword'" class="text-sm text-gray-500 dark:text-gray-300">{{ $t('messages.account.enterEmailOrUsernameForReset') }}</p>
       <div v-if="formView !== 'forgotPassword'">
         <input class="mt-1" v-model="userInfo.username" :placeholder="inputPlaceholder.username" autocomplete="username" type="text" required />
 
@@ -30,8 +30,8 @@
       </Transition>
 
       <div class="flex items-center justify-between mt-4">
-        <label class="flex items-center gap-2"><input v-model="userInfo.rememberMe" type="checkbox" />Remember me </label>
-        <div class="font-semibold cursor-pointer text-sm text-primary hover:text-primary" @click="navigate('forgotPassword')" v-if="formView === 'login'">
+        <label class="flex items-center font-normal text-sm text-gray-500 dark:text-gray-300 gap-2"><input v-model="userInfo.rememberMe" type="checkbox" />Remember me </label>
+        <div class="font-semibold cursor-pointer text-sm text-crimson hover:text-primary" @click="navigate('forgotPassword')" v-if="formView === 'login'">
           Forgot password?
         </div>
       </div>
@@ -39,23 +39,23 @@
       <!-- Login button -->
       <button class="flex items-center justify-center gap-4 my-6 text-lg">
         <LoadingIcon v-if="isPending" stroke="4" size="16" color="#fff" />
-        <span>{{ buttonText }}</span>
+        <span class="font-semibold">{{ buttonText }}</span>
       </button>
     </form>
 
-    <div v-if="formView === 'login'" class="my-6 text-center">
+    <div v-if="formView === 'login'" class="my-6 text-right">
       {{ $t('messages.account.noAccount') }}
-      <a class="font-semibold cursor-pointer text-primary" @click="navigate('register')"> {{ $t('messages.account.accountRegister') }} </a>.
+      <a class="font-semibold cursor-pointer text-crimson" @click="navigate('register')"> {{ $t('messages.account.accountRegister') }} </a>.
     </div>
 
-    <div v-if="formView === 'register'" class="my-2 text-center justify-center">
+    <div v-if="formView === 'register'" class="my-2 text-right">
       {{ $t('messages.account.hasAccount') }}
-      <a class="font-semibold cursor-pointer text-primary" @click="navigate('login')">
+      <a class="font-semibold cursor-pointer text-crimson" @click="navigate('login')">
         {{ $t('messages.general.please') }} {{ $t('messages.account.accountLogin') }}
       </a>
     </div>
 
-    <div class="my-8 text-center cursor-pointer" @click="navigate('login')" v-if="formView === 'forgotPassword'">{{ $t('messages.account.backToLogin') }}</div>
+    <div class="my-8 text-right cursor-pointer" @click="navigate('login')" v-if="formView === 'forgotPassword'">{{ $t('messages.account.backToLogin') }}</div>
   </div>
 </template>
 
@@ -178,10 +178,10 @@ const inputPlaceholder = computed(() => {
 input[type='text'],
 input[type='password'],
 button {
-  @apply border rounded-lg mb-4 w-full p-3 px-4 bg-white;
+  @apply border rounded-lg mb-4 w-full p-3 px-4 bg-white dark:bg-night-shade;
 }
 
 form button {
-  @apply rounded-lg font-bold bg-gray-800 text-white py-3 px-8 hover:bg-gray-800;
+  @apply rounded-lg font-bold bg-gray-800 hover:bg-gray-800 text-white py-3 px-8 dark:bg-night-shade dark:border-2 dark:border-gray-500 dark:hover:border-gray-300 dark:hover:bg-night-shade;
 }
 </style>
