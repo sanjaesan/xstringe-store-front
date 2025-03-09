@@ -116,9 +116,29 @@ const disabledAddToCart = computed(() => {
             </div>
           </div>
 
-          <div class="mb-8 font-light prose" v-html="product.shortDescription" />
+          <div class="mb-5 font-light prose" v-html="product.shortDescription" />
+
+          <div v-if="storeSettings.showProductCategoriesOnSingleProduct && product.productCategories">
+            <div class="grid gap-2 my-4 text-sm">
+              <div class="flex items-center gap-2">
+                <span class="text-black-400">{{ $t('messages.shop.category') }}:</span>
+                <div class="product-categories">
+                  <NuxtLink
+                    v-for="category in product.productCategories.nodes"
+                    :key="category.databaseId"
+                    :to="`/product-category/${decodeURIComponent(category?.slug || '')}`"
+                    class="hover:text-primary"
+                    :title="category.name"
+                    >{{ category.name }}<span class="comma">, </span>
+                  </NuxtLink>
+                </div>
+              </div>
+            </div>
+            <hr />
+          </div> 
           <hr />
           <ProductSpec/>
+          <hr />
           <form @submit.prevent="addToCart(selectProductInput)">
             <AttributeSelections
               v-if="isVariableProduct && product.attributes && product.variations"
@@ -146,25 +166,7 @@ const disabledAddToCart = computed(() => {
               {{ product?.buttonText || 'View product' }}
             </a>
           </form>
-
-          <!-- <div v-if="storeSettings.showProductCategoriesOnSingleProduct && product.productCategories">
-            <div class="grid gap-2 my-8 text-sm">
-              <div class="flex items-center gap-2">
-                <span class="text-black-400">{{ $t('messages.shop.category') }}:</span>
-                <div class="product-categories">
-                  <NuxtLink
-                    v-for="category in product.productCategories.nodes"
-                    :key="category.databaseId"
-                    :to="`/product-category/${decodeURIComponent(category?.slug || '')}`"
-                    class="hover:text-primary"
-                    :title="category.name"
-                    >{{ category.name }}<span class="comma">, </span>
-                  </NuxtLink>
-                </div>
-              </div>
-            </div>
-            <hr />
-          </div> -->
+   
           <div class="flex flex-wrap gap-4">
             <WishlistButton :product />
             <ShareButton :product />
