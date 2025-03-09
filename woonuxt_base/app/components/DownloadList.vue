@@ -22,7 +22,7 @@ const refresh = () => {
         </button>
       </div>
     </div>
-    <div v-else-if="downloads && downloads.length === 0" class="min-h-[250px] flex items-center justify-center text-gray-500 text-lg">No downloads found.</div>
+    <div v-else-if="downloads && downloads.length === 0" class="min-h-[250px] flex items-center justify-center text-gray-500 dark:text-gray-300 text-lg">No downloads found.</div>
     <LoadingIcon v-else size="24" stroke="2" />
   </div>
 </template>

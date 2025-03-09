@@ -1,0 +1,46 @@
+<template>
+    <Carousel :slides="heroSlides" />
+  </template>
+  
+  <script setup>
+  const heroSlides = [
+  {
+      img: '/images/hero-r.png',
+      title: 'Innovation at its Best.',
+      subtitle: 'Elevate your daily life.',
+      description: 'Experience the next generation of smart solutions.',
+      link: '/product-category/desktop',
+      alt: 'desktop',
+      actionText: 'Learn more',
+      class: {
+        title: 'text-white darken-2',
+        subtitle: 'text-white  darken-4',
+        description: 'text-white',
+        actionButton: 'bg-gray-200',
+      }
+    },
+    { 
+      img: '/images/hero-g.png',
+      title: 'The Future is Now.',
+      subtitle: 'Level Up Your Reality.',
+      description: 'Explore the pinnacle of creativity and high-performance tech. Elevate your experience.',
+      link: '/product-category/custom',
+      alt: 'desktop',
+      actionText: 'Shop Desktops',
+      class: {
+        title: 'text-white darken-2',
+        description: 'text-gray-200 darken-2',
+        actionButton: 'bg-primary',
+      }
+    },
+    {
+      img: '/images/hero-w.png',
+      title: 'Discover New Horizons.',
+      subtitle: 'Unleash Your Potential.',
+      description: 'Dive into cutting-edge innovations and redefine your limits.',
+      link: '/product-category/laptop',
+      alt: 'laptop',
+      actionText: 'Shop Laptops',
+    }
+  ];
+  </script>

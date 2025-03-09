@@ -15,7 +15,7 @@ const show = ref(initialTab);
       <button v-if="storeSettings.showReviews" type="button" :class="show === 1 ? 'active' : ''" @click.prevent="show = 1">{{ $t('messages.shop.reviews') }} ({{ product.reviewCount }})</button>
     </nav>
     <div class="tab-contents">
-      <div v-if="show === 0 && product.description" class="font-light mt-8 prose" v-html="product.description" />
+      <div v-if="show === 0 && product.description" class="font-light mt-8 prose text-gray-300" v-html="product.description" />
       <ProductReviews v-if="show === 1" :product="product" />
     </div>
   </div>
@@ -23,11 +23,11 @@ const show = ref(initialTab);
 
 <style lang="postcss" scoped>
 .tabs button {
-  @apply border-transparent border-b-2 text-lg pb-8;
+  @apply border-transparent dark:text-gray-300 border-b-2 text-lg pb-8;
   margin-bottom: -1px;
 }
 
 .tabs button.active {
-  @apply border-primary text-primary;
+  @apply border-crimson text-primary dark:text-crimson font-medium;
 }
 </style>
