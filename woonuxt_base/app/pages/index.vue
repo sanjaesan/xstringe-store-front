@@ -1,10 +1,6 @@
 <script lang="ts" setup>
 import { ProductsOrderByEnum } from '#woo';
-import HeroBanner from '../components/generalElements/HeroBanner.vue';
 const { siteName, description, shortDescription, siteImage } = useAppConfig();
-
-const { data } = await useAsyncGql('getProductCategories', { first: 6 });
-const productCategories = data.value?.productCategories?.nodes || [];
 
 const { data: productData1 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.DATE });
 const newProducts = productData1.value.products?.nodes || [];
@@ -82,15 +78,6 @@ useSeoMeta({
       </div>
       <ProductRow :products="popularProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <!-- <section class="container my-16">
-      <div class="flex items-end justify-between">
-        <h2 class="text-lg font-semibold md:text-2xl text-crimson">{{ $t('messages.shop.shopByCategory') }}</h2>
-        <NuxtLink class="text-maroon" to="/categories">{{ $t('messages.general.viewAll') }}</NuxtLink>
-      </div>
-      <div class="grid justify-center grid-cols-2 gap-4 mt-8 md:grid-cols-3 lg:grid-cols-6">
-        <CategoryCard v-for="(category, i) in productCategories" :key="i" class="w-full" :node="category" />
-      </div>
-    </section> -->
   </main>
 </template>
 
