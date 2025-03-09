@@ -3,16 +3,16 @@
         <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
 
         <div class="mt-3">
-            <template v-for="(product, i) in specs">
+            <template v-for="(spec, i) in specs">
                 <Accordion class="mt-2">
                     <template #title>
                         <div class="flex items-center">
                             <div>
-                                <img :src="product.img" class="h-12 w-14 transition delay-150 duration-300 ease-in-out hover:scale-125" />
+                                <img :src="spec.img" class="h-12 w-14 transition delay-150 duration-300 ease-in-out hover:scale-125" />
                             </div>
                             <div class="ml-4 text-black-300">
-                                <div class="text-base font-medium">{{ product.title }}</div>
-                                <span class="text-sm font-normal">{{ product.content }}</span>
+                                <div class="text-base font-medium">{{ spec.title }}</div>
+                                <span class="text-sm font-normal">{{ spec.content }}</span>
                             </div>
                         </div>
                     </template>
@@ -20,9 +20,9 @@
                     <template #content>
                         <div>
                             <div class="m-h-[80px]">
-                                <img :src="product.img" class="h-[90px]" />
+                                <img :src="spec.img" class="h-[90px]" />
                             </div>
-                            <span class="text-sm font-normal mt-1">{{ product.content }}</span>
+                            <span class="text-sm font-normal mt-1">{{ spec.content }}</span>
                         </div>
                     </template>
                 </Accordion>
