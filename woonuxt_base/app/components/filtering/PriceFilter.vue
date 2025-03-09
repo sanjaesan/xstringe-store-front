@@ -8,7 +8,7 @@ const currencySymbol = runtimeConfig?.public?.CURRENCY_SYMBOL || '₦';
 
 const activeFilters = ref(getFilter('price'));
 const price = activeFilters.value.length ? ref(activeFilters.value) : ref([0, maxPrice]);
-const isOpen = ref(false);
+const isOpen = ref(true);
 
 const resetSlider = () => {
   price.value = [0, maxPrice];
