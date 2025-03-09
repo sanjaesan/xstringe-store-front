@@ -107,22 +107,18 @@ const disabledAddToCart = computed(() => {
 
           <div class="grid gap-2 my-8 text-sm empty:hidden">
             <div v-if="!isExternalProduct" class="flex items-center gap-2">
-              <span class="text-gray-400">{{ $t('messages.shop.availability') }}: </span>
+              <span class="text-black-400">{{ $t('messages.shop.availability') }}: </span>
               <StockStatus :stockStatus @updated="mergeLiveStockStatus" />
             </div>
             <div class="flex items-center gap-2" v-if="storeSettings.showSKU && product.sku">
-              <span class="text-gray-400">{{ $t('messages.shop.sku') }}: </span>
+              <span class="text-black-400">{{ $t('messages.shop.sku') }}: </span>
               <span>{{ product.sku || 'N/A' }}</span>
             </div>
           </div>
 
           <div class="mb-8 font-light prose" v-html="product.shortDescription" />
           <hr />
-          <div class="flex justify-between mb-4">
-            <span class="text-black-800 mt-2 font-bold">{{ $t('messages.shop.specification')}}</span>
-            <!-- <div class="mt-2">SPECIFICATION DROPDOWN MENU GOES HERE</div> -->
-          </div>
-
+          <ProductSpec/>
           <form @submit.prevent="addToCart(selectProductInput)">
             <AttributeSelections
               v-if="isVariableProduct && product.attributes && product.variations"
@@ -146,15 +142,15 @@ const disabledAddToCart = computed(() => {
               v-if="isExternalProduct && product.externalUrl"
               :href="product.externalUrl"
               target="_blank"
-              class="rounded-lg flex font-bold bg-gray-800 text-white text-center min-w-[150px] p-2.5 gap-4 items-center justify-center focus:outline-none">
+              class="rounded-lg flex font-bold bg-black-800 text-white text-center min-w-[150px] p-2.5 gap-4 items-center justify-center focus:outline-none">
               {{ product?.buttonText || 'View product' }}
             </a>
           </form>
 
-          <div v-if="storeSettings.showProductCategoriesOnSingleProduct && product.productCategories">
+          <!-- <div v-if="storeSettings.showProductCategoriesOnSingleProduct && product.productCategories">
             <div class="grid gap-2 my-8 text-sm">
               <div class="flex items-center gap-2">
-                <span class="text-gray-400">{{ $t('messages.shop.category', 2) }}:</span>
+                <span class="text-black-400">{{ $t('messages.shop.category') }}:</span>
                 <div class="product-categories">
                   <NuxtLink
                     v-for="category in product.productCategories.nodes"
@@ -168,8 +164,7 @@ const disabledAddToCart = computed(() => {
               </div>
             </div>
             <hr />
-          </div>
-
+          </div> -->
           <div class="flex flex-wrap gap-4">
             <WishlistButton :product />
             <ShareButton :product />

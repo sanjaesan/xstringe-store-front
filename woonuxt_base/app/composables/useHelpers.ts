@@ -6,7 +6,6 @@ export function useHelpers() {
   const runtimeConfig = useRuntimeConfig();
 
   const isShowingMobileMenu = useState<boolean>('isShowingMobileMenu', () => false);
-  const wooNuxtVersionInfo: string = pkg.version || '0.0.0';
   const productsPerPage: number = runtimeConfig.public?.PRODUCTS_PER_PAGE || 24;
   const wooNuxtSEO = runtimeConfig.public?.WOO_NUXT_SEO as WooNuxtSEOItem[];
   const frontEndUrl = runtimeConfig.public?.FRONT_END_URL?.replace(/\/$/, '') || null;
@@ -206,7 +205,6 @@ export function useHelpers() {
 
   return {
     isShowingMobileMenu,
-    wooNuxtVersionInfo,
     productsPerPage,
     isQueryEmpty,
     wooNuxtSEO,
