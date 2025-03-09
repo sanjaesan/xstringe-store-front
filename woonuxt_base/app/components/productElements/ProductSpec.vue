@@ -1,5 +1,5 @@
 <template>
-    <div class="my-6">
+    <div class="my-4">
         <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
 
         <div class="mt-3">
