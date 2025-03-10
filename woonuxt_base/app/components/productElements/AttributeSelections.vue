@@ -118,7 +118,7 @@ onMounted(() => {
       <!-- CHECKBOXES -->
       <div v-else class="grid gap-2">
         <div class="text-sm">
-          {{ attr.label }} <span v-if="activeVariations.length" class="text-gray-400">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
+          {{ attr.label }} <span v-if="activeVariations.length" class="text-gray-500">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
         </div>
         <div class="flex gap-2">
           <span v-for="(term, index) in attr.terms.nodes" :key="index">
