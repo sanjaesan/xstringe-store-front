@@ -3,7 +3,7 @@
         <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
 
         <div class="mt-3">
-            <template v-for="(spec, i) in specs">
+            <template v-for="(spec, i) in specs" :key="i">
                 <Accordion class="mt-2">
                     <template #title>
                         <div class="flex items-center">
