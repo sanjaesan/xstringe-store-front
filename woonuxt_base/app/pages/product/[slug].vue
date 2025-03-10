@@ -144,7 +144,7 @@ const disabledAddToCart = computed(() => {
           <hr />
           <ProductSpec :productCategory="isAccessories ? 'accessories' : 'product'"/>
           <hr />
-          <form class="mt-[-20px]" @submit.prevent="addToCart(selectProductInput)">
+          <form @submit.prevent="addToCart(selectProductInput)">
             <AttributeSelections
               v-if="isVariableProduct && product.attributes && product.variations"
               class="mt-4 mb-8"
