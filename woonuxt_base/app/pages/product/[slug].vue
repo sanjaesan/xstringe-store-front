@@ -139,7 +139,6 @@ const disabledAddToCart = computed(() => {
           <hr />
           <hr />         
           <form @submit.prevent="addToCart(selectProductInput)">
-            <!-- <AttributeAccordion /> -->
             <div class="my-4">
               <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
                 <AttributeSelections
