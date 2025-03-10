@@ -22,12 +22,7 @@ const attrValues = ref();
 const isSimpleProduct = computed<boolean>(() => product.value?.type === ProductTypesEnum.SIMPLE);
 const isVariableProduct = computed<boolean>(() => product.value?.type === ProductTypesEnum.VARIABLE);
 const isExternalProduct = computed<boolean>(() => product.value?.type === ProductTypesEnum.EXTERNAL);
-const isAccessories = computed<boolean>(() => {
-    if(product.value?.productCategories?.nodes){
-        return product.value.productCategories.nodes.some(category => category.slug === 'accessories');
-    }
-    return false;
-});
+
 const type = computed(() => activeVariation.value || product.value);
 const selectProductInput = computed<any>(() => ({ productId: type.value?.databaseId, quantity: quantity.value })) as ComputedRef<AddToCartInput>;
 
@@ -142,16 +137,19 @@ const disabledAddToCart = computed(() => {
             <hr />
           </div> 
           <hr />
-          <ProductSpec :productCategory="isAccessories ? 'accessories' : 'product'"/>
-          <hr />
+          <hr />         
           <form @submit.prevent="addToCart(selectProductInput)">
-            <AttributeSelections
-              v-if="isVariableProduct && product.attributes && product.variations"
-              class="mt-4 mb-8"
-              :attributes="product.attributes.nodes"
-              :defaultAttributes="product.defaultAttributes"
-              :variations="product.variations.nodes"
-              @attrs-changed="updateSelectedVariations" />
+            <!-- <AttributeAccordion /> -->
+            <div class="my-4">
+              <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
+                <AttributeSelections
+                  v-if="isVariableProduct && product.attributes && product.variations"
+                  class="mt-4 mb-8"
+                  :attributes="product.attributes.nodes"
+                  :defaultAttributes="product.defaultAttributes"
+                  :variations="product.variations.nodes"
+                  @attrs-changed="updateSelectedVariations" />
+            </div>
             <div
               v-if="isVariableProduct || isSimpleProduct"
               class="fixed bottom-0 left-0 z-10 flex items-center w-full gap-4 p-4 mt-12 bg-white md:static md:bg-transparent bg-opacity-90 md:p-0">
@@ -171,7 +169,6 @@ const disabledAddToCart = computed(() => {
               {{ product?.buttonText || 'View product' }}
             </a>
           </form>
-   
           <div class="flex flex-wrap gap-4">
             <WishlistButton :product />
             <ShareButton :product />
