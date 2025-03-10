@@ -100,7 +100,7 @@ onMounted(() => {
             </div>
           </div>
 
-          <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 3" class="grid gap-2">
+          <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8" class="grid gap-2">
             <select :id="attr.name" :ref="attr.name" :name="attr.name" required class="border-white shadow" @change="updateAttrs">
               <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
               <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
