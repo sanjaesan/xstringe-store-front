@@ -22,7 +22,12 @@ const attrValues = ref();
 const isSimpleProduct = computed<boolean>(() => product.value?.type === ProductTypesEnum.SIMPLE);
 const isVariableProduct = computed<boolean>(() => product.value?.type === ProductTypesEnum.VARIABLE);
 const isExternalProduct = computed<boolean>(() => product.value?.type === ProductTypesEnum.EXTERNAL);
-
+const isAccessories = computed<boolean>(() => {
+    if(product.value?.productCategories?.nodes){
+        return product.value.productCategories.nodes.some(category => category.slug === 'accessories');
+    }
+    return false;
+});
 const type = computed(() => activeVariation.value || product.value);
 const selectProductInput = computed<any>(() => ({ productId: type.value?.databaseId, quantity: quantity.value })) as ComputedRef<AddToCartInput>;
 
@@ -137,9 +142,9 @@ const disabledAddToCart = computed(() => {
             <hr />
           </div> 
           <hr />
-          <ProductSpec/>
+          <ProductSpec :productCategory="isAccessories ? 'accessories' : 'product'"/>
           <hr />
-          <form @submit.prevent="addToCart(selectProductInput)">
+          <form class="mt-[-20px]" @submit.prevent="addToCart(selectProductInput)">
             <AttributeSelections
               v-if="isVariableProduct && product.attributes && product.variations"
               class="mt-4 mb-8"
