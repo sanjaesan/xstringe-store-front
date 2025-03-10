@@ -1,5 +1,5 @@
 <template>
-    <div class="my-4">
+    <div v-if="!isAccessories" class="my-4">
         <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
 
         <div class="mt-3">
@@ -36,6 +36,14 @@ import Accordion from '../generalElements/Accordion.vue';
 
 const { t } = useI18n();
 
+const props = defineProps({
+  productCategory: {
+    type: String,
+    required: true,
+  },
+});
+
+const isAccessories = computed(() => props.productCategory === 'accessories');
 const specs = [
     {
         title: 'Chassis.',
