@@ -26,14 +26,14 @@ useSeoMeta({
     <HeroSlider />
     <div class="container flex flex-wrap items-center justify-center my-16 text-center gap-x-8 gap-y-4 brand lg:justify-between">
       <img src="/images/asus.svg" alt="Brand 1" width="70" height="30" />
-      <img src="/images/razer.svg" alt="Brand 2" width="60" height="30" />
-      <img src="/images/lenovo.svg" alt="Brand 3" width="100" height="30" />
+      <img src="/images/lenovo.svg" alt="Brand 2" width="100" height="30" />
+      <img src="/images/razer.svg" alt="Brand 3" width="60" height="30" />
       <img src="/images/alien.svg" alt="Brand 4" width="70" height="30" />
       <img src="/images/msi.svg" alt="Brand 5" width="80" height="35" />
       <img src="/images/nvidia.svg" alt="Brand 6" width="70" height="35" />
       <img src="/images/logitech.svg" alt="Brand 7" width="50" height="25" />
       <img src="/images/predator.svg" alt="Brand 8" width="65" height="30" />
-      <img src="/images/starlink.svg" alt="Brand 9" width="115" height="70" />
+      <img src="/images/radeon.svg" alt="Brand 9" width="120" height="80" />
     </div>
     <section class="container my-16" v-if="newProducts">
       <div class="flex items-end justify-between">
