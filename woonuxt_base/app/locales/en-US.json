@@ -81,6 +81,7 @@
       "availability": "Availability",
       "specification": "Specifications | Specification",
       "inStock": "In Stock",
+      "ratedProduct": "Top Rated Product",
       "outOfStock": "Out of Stock",
       "onBackorder": "On Backorder",
       "sku": "SKU",
