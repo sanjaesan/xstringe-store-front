@@ -5,8 +5,8 @@
         <div class="ml-4 pt-4 md:m-0 md:pt-0">
           <NuxtImg
             class="object-cover w-full h-[100px] md:h-full"
-            src="/images/banner.png"
-            alt="Hero image"
+            :src="imgSrc"
+            :alt="imgAlt"
             loading="eager"
             sizes="320px"
             fetchpriority="high"
@@ -18,10 +18,10 @@
 
         <div class="drop-shadow-xs my-6 md:my-0 md:ml-6 lg:ml-24 text-center">
           <h1 class="text-lg lg:text-2xl font-bold text-white darken-2">
-            Make Every Play Count
+            {{ text }}
           </h1>
           <h2 class="text-sm font-normal text-white mt-0.5">
-            Radeon™ RX 9000 Series PCs Available Now.
+            {{ subtext }}
           </h2>
         </div>
       </div>
@@ -29,7 +29,7 @@
       <div class="pb-3 lg:pv-0 text-center">
         <NuxtLink
           class="rounded-3xl border px-4 py-1.5 border-white text-white mt-2 text-m hover:border-primary dark:hover:border-crimson"
-          to="/products"
+          :to="shopLink"
         >
           Shop now
         </NuxtLink>
@@ -37,3 +37,28 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({
+  imgSrc: {
+    type: String,
+    required: true,
+  },
+  imgAlt: {
+    type: String,
+    default: 'Banner Image',
+  },
+  text: {
+    type: String,
+    required: true,
+  },
+  subtext: {
+    type: String,
+    required: true,
+  },
+  shopLink: {
+    type: String,
+    required: true,
+  },
+});
+</script>
