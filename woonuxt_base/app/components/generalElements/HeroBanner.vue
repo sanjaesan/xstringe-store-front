@@ -1,10 +1,10 @@
 <template>
-  <div class="relative bg-black rounded-xl p-3 mx-auto my-8 md:my-0 md:h-[120px]">
+  <div class="relative bg-black rounded-xl p-3 mx-auto my-8 md:my-0 md:h-[160px]">
     <div class="md:absolute inset-0 md:flex flex-row items-center justify-between md:pr-6">
       <div class="md:flex items-center">
         <div class="ml-4 pt-4 md:m-0 md:pt-0">
           <NuxtImg
-            class="object-cover w-full h-[80px] md:h-full"
+            class="object-cover w-full h-[100px] md:h-full"
             src="/images/banner.png"
             alt="Hero image"
             loading="eager"
@@ -17,10 +17,10 @@
         </div>
 
         <div class="drop-shadow-xs my-6 md:my-0 md:ml-6 lg:ml-24 text-center">
-          <h1 class="text-lg lg:text-2xl font-semibold text-white darken-2">
+          <h1 class="text-lg lg:text-2xl font-bold text-white darken-2">
             Make Every Play Count
           </h1>
-          <h2 class="text-sm font-normal text-gray-100 mt-0.5">
+          <h2 class="text-sm font-normal text-white mt-0.5">
             Radeon™ RX 9000 Series PCs Available Now.
           </h2>
         </div>
