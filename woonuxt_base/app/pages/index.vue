@@ -8,6 +8,9 @@ const newProducts = productData1.value.products?.nodes || [];
 const { data: productData2 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.POPULARITY });
 const popularProducts = productData2.value.products?.nodes || [];
 
+const { data: productData3 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.POPULARITY });
+const ratedProducts = productData3.value.products?.nodes || [];
+
 useSeoMeta({
   title: `Home`,
   ogTitle: siteName,
@@ -40,7 +43,12 @@ useSeoMeta({
       <ProductRow :products="newProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
     <section class="container ">
-      <HeroBanner />
+      <HeroBanner 
+        imgSrc="/images/amd-banner.png"
+        text="Unlock unparalleled gaming experiences with"
+        subtext="Radeon™ RX 9000 Series PCs Available Now."
+        shopLink="/product"
+      />
     </section>
     <section class="container my-16" v-if="popularProducts">
       <div class="flex items-end justify-between">
@@ -80,6 +88,21 @@ useSeoMeta({
           </div>
         </div>
       </div>
+    </section>
+    <section class="container my-16" v-if="ratedProducts">
+      <div class="flex items-end justify-between">
+        <h2 class="text-lg font-semibold md:text-2xl text-crimson">{{ $t('messages.shop.ratedProduct') }}</h2>
+        <NuxtLink class="text-maroon" to="/products">{{ $t('messages.general.viewAll') }}</NuxtLink>
+      </div>
+      <ProductRow :products="ratedProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
+    </section>
+    <section class="container mb-10 ">
+      <HeroBanner 
+        imgSrc="/images/amd-banner.png"
+        text="Powering the Future of Creativity and Play"
+        subtext="NVIDIA® GeForce RTX™ 5000 Series cards Available Now."
+        shopLink="/product"
+      />
     </section>
   </main>
 </template>
