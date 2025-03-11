@@ -1,8 +1,8 @@
 <template>
-  <div class="relative bg-gray-200 border border-gray-300 dark:bg-night-shade dark:border-0" :class="[isAccordion ? 'pb-1' : 'rounded-xl mb-4']">
+  <div class="relative transition-all  bg-gray-200 border border-gray-300 dark:bg-night-shade dark:border-0" :class="[isAccordion ? 'pb-1' : 'rounded-xl mb-4']">
     <button type="button" class="w-full p-4 text-left" :class="{ 'px-0': isAccordion }" @click="onActive">
       <div class="flex items-center justify-between">
-        <span class="text-black-300 whitespace-nowrap">
+        <span class="whitespace-nowrap">
           <slot name="title" />
         </span>
 
@@ -21,13 +21,13 @@
     <div
       class="relative overflow-hidden transition-all duration-700"
       :class="[
-        isActive ? `max-h-[${height}px]` : 'max-h-0',
+        isActive && height ? `max-h-[${height}px]` : isActive ? 'max-h-[220px]' : 'max-h-0',
         {
           'border-b border-black-200': isAccordion,
         },
       ]"
     >
-      <div class="pt-2 px-4 pb-4 text-black-300" :class="{ 'px-0': isAccordion }">
+      <div class="pt-1 px-4 pb-4" :class="{ 'px-0': isAccordion }">
         <slot name="content" />
       </div>
     </div>
@@ -45,6 +45,10 @@
     modelValue: {
       type: Boolean,
       default: false,
+    },
+    height: {
+      type: Number,
+      default: 0,
     },
   });
   const emit = defineEmits(['update:modelValue']);
