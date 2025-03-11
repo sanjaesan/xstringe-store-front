@@ -57,7 +57,7 @@ onMounted(() => {
       <div class="grid gap-2">
         <div class="text-sm">
           {{ attr.label }}
-          <span v-if="activeVariations.length && activeVariations[i]" class="text-gray-400">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
+          <span v-if="activeVariations.length && activeVariations[i]" class="text-black-400">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
         </div>
         <div class="flex gap-2">
           <span v-for="(option, index) in attr.options" :key="index">
@@ -80,59 +80,65 @@ onMounted(() => {
     </div>
 
       <!-- COLOR SWATCHES -->
-      <div v-else-if="attr.name == 'pa_color' || attr.name == 'color'" class="flex flex-wrap py-2 relative justify-between">
-      <div class="grid gap-2">
-        <div class="text-sm">
-          {{ $t('messages.general.color') }}
-          <span v-if="activeVariations.length" class="text-gray-400">{{ getSelectedName(attr, activeVariations[i]) }}</span>
-        </div>
-        <div class="flex gap-2">
-          <span v-for="(term, termIndex) in attr.terms.nodes" :key="termIndex">
-            <Tooltip :text="term.name">
-              <label :for="`${term.slug}_${termIndex}`">
-                <input
-                  :id="`${term.slug}_${termIndex}`"
-                  :ref="attr.name"
-                  class="hidden"
-                  :checked="termIndex == 0"
-                  type="radio"
-                  :class="className(attr.name)"
-                  :name="attr.name"
-                  :value="term.slug"
-                  @change="updateAttrs" />
-                <span class="color-button" :class="`color-${term.slug}`" :title="`${attr.name}: ${term}`"></span>
-              </label>
-            </Tooltip>
-          </span>
-        </div>
-      </div>
+      <div v-else-if="attr.name == 'pa_color' || attr.name == 'color'">
+        <Accordion :height="attr.height">
+          <template #title>
+            <div class="text-black-300">
+                <div class="text-base font-medium">{{ $t('messages.general.color') }}</div>
+                <span v-if="activeVariations.length" class="text-sm text-black-400 font-normal">
+                  {{ getSelectedName(attr, activeVariations[i]) }}
+                </span>
+            </div>
+          </template>
+
+          <template #content>
+            <div class="flex gap-2">
+              <span v-for="(term, termIndex) in attr.terms.nodes" :key="termIndex">
+                <Tooltip :text="term.name">
+                  <label :for="`${term.slug}_${termIndex}`">
+                    <input
+                      :id="`${term.slug}_${termIndex}`"
+                      :ref="attr.name"
+                      class="hidden"
+                      :checked="termIndex == 0"
+                      type="radio"
+                      :class="className(attr.name)"
+                      :name="attr.name"
+                      :value="term.slug"
+                      @change="updateAttrs" />
+                    <span class="color-button" :class="`color-${term.slug}`" :title="`${attr.name}: ${term}`"></span>
+                  </label>
+                </Tooltip>
+              </span>
+            </div>
+          </template>
+        </Accordion>
       </div>
 
       <!-- DROPDOWN -->
-      <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8" class="flex flex-wrap py-2 relative justify-between"> 
-
-      <div class="grid gap-2">
-        <div class="text-sm">
-          {{ attr.label }} <span v-if="activeVariations.length" class="text-gray-400">{{ getSelectedName(attr, activeVariations[i]) }}</span>
+      <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8" class="flex flex-wrap py-2 relative justify-between">
+        <div class="grid gap-2">
+          <div class="text-sm">
+            {{ attr.label }} <span v-if="activeVariations.length" class="text-black-400">{{ getSelectedName(attr, activeVariations[i]) }}</span>
+          </div>
+          <select :id="attr.name" :ref="attr.name" :name="attr.name" required class="border-white shadow" @change="updateAttrs">
+            <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
+            <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
+          </select>
         </div>
-        <select :id="attr.name" :ref="attr.name" :name="attr.name" required class="border-white shadow" @change="updateAttrs">
-          <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
-          <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
-        </select>
       </div>
-    </div>
 
       <!-- CHECKBOXES -->
       <div v-else>
-        <Accordion :height="attr.height || 200">
+        <Accordion :height="attr.height">
           <template #title>
             <div class="flex items-center">
-              <div>
+              <div class="hidden mr-4">
                 <img :src="sampleImage" class="h-12 w-14 transition delay-150 duration-300 ease-in-out hover:scale-125" />
               </div>
-              <div class="ml-4 text-black-300">
+              <div class="text-black-300">
                 <div class="text-base font-medium">{{ attr.label }}</div>
-                <span v-if="activeVariations.length" class="text-sm text-gray-400 font-normal">
+                <span v-if="activeVariations.length" class="text-sm text-black-400 font-normal">
                   {{ getSelectedName(attr, activeVariations[i]) }}
                 </span>
               </div>
@@ -140,7 +146,7 @@ onMounted(() => {
         </template>
 
         <template #content>
-          <div class="grid grid-cols-3 gap-4">
+          <div class="flex flex-wrap gap-3">
             <span class="mt-2" v-for="(term, index) in attr.terms.nodes" :key="index">
               <label class="radio-button text-center" :for="`${term.slug}_${index}`">
                 <input
@@ -155,7 +161,7 @@ onMounted(() => {
                   @change="updateAttrs" 
                 />
 
-                <div class="m-h-[80px]">
+                <div class="m-h-[80px] hidden">
                   <img :src="term.img || sampleImage" class="h-[90px] mx-auto" />
                 </div>
 
