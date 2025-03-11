@@ -28,7 +28,7 @@
 
       <div class="pb-3 lg:pv-0 text-center">
         <NuxtLink
-          class="rounded-3xl border px-4 py-1.5 border-white text-white mt-2 text-sm hover:border-primary dark:hover:border-crimson"
+          class="rounded-3xl border px-4 py-1.5 border-white text-white mt-2 text-m hover:border-primary dark:hover:border-crimson"
           to="/products"
         >
           Shop now
