@@ -116,39 +116,16 @@ const disabledAddToCart = computed(() => {
             </div>
           </div>
 
-          <div class="mb-5 font-light prose" v-html="product.shortDescription" />
-
-          <div v-if="storeSettings.showProductCategoriesOnSingleProduct && product.productCategories">
-            <div class="grid gap-2 my-4 text-sm">
-              <div class="flex items-center gap-2">
-                <span class="text-black-400">{{ $t('messages.shop.category') }}:</span>
-                <div class="product-categories">
-                  <NuxtLink
-                    v-for="category in product.productCategories.nodes"
-                    :key="category.databaseId"
-                    :to="`/product-category/${decodeURIComponent(category?.slug || '')}`"
-                    class="hover:text-primary"
-                    :title="category.name"
-                    >{{ category.name }}<span class="comma">, </span>
-                  </NuxtLink>
-                </div>
-              </div>
-            </div>
-            <hr />
-          </div> 
-          <hr />
-          <hr />         
+          <div class="mb-8 font-light prose" v-html="product.shortDescription" />
+          <!-- <ProductSpec/> -->
           <form @submit.prevent="addToCart(selectProductInput)">
-            <div class="my-4">
-              <span class="text-black-400 text-base">{{ $t('messages.shop.specification') }} </span>
-                <AttributeSelections
-                  v-if="isVariableProduct && product.attributes && product.variations"
-                  class="mt-4 mb-8"
-                  :attributes="product.attributes.nodes"
-                  :defaultAttributes="product.defaultAttributes"
-                  :variations="product.variations.nodes"
-                  @attrs-changed="updateSelectedVariations" />
-            </div>
+            <AttributeSelections
+              v-if="isVariableProduct && product.attributes && product.variations"
+              class="mt-4 mb-8"
+              :attributes="product.attributes.nodes"
+              :defaultAttributes="product.defaultAttributes"
+              :variations="product.variations.nodes"
+              @attrs-changed="updateSelectedVariations" />
             <div
               v-if="isVariableProduct || isSimpleProduct"
               class="fixed bottom-0 left-0 z-10 flex items-center w-full gap-4 p-4 mt-12 bg-white md:static md:bg-transparent bg-opacity-90 md:p-0">

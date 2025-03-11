@@ -39,35 +39,37 @@ useSeoMeta({
       </div>
       <ProductRow :products="newProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <HeroBanner />
 
-    <section class="container grid gap-4 my-24 md:grid-cols-2 lg:grid-cols-4">
-      <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/shipping.svg" width="60" height="60" alt="Free Shipping" loading="lazy" />
-        <div>
-          <h3 class="text-xl font-semibold">Free Shipping</h3>
-          <p class="text-sm">Desktops come with free shipping</p>
+    <section class="container ">
+      <HeroBanner />
+      <div class="grid gap-4 my-24 md:grid-cols-2 lg:grid-cols-4">
+        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
+          <img src="/icons/shipping.svg" width="60" height="60" alt="Free Shipping" loading="lazy" />
+          <div>
+            <h3 class="text-xl font-semibold">Free Shipping</h3>
+            <p class="text-sm">Desktops come with free shipping</p>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/call.svg" width="60" height="60" alt="Money Back" loading="lazy" />
-        <div>
-          <h3 class="text-xl font-semibold">Support</h3>
-          <p class="text-sm">We provide 24/7 support.</p>
+        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
+          <img src="/icons/call.svg" width="60" height="60" alt="Money Back" loading="lazy" />
+          <div>
+            <h3 class="text-xl font-semibold">Support</h3>
+            <p class="text-sm">We provide 24/7 support.</p>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/certified.svg" width="60" height="60" alt="Secure Payment" loading="lazy" />
-        <div>
-          <h3 class="text-xl font-semibold">Certified</h3>
-          <p class="text-sm">We offer satisfactory product.</p>
+        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
+          <img src="/icons/certified.svg" width="60" height="60" alt="Secure Payment" loading="lazy" />
+          <div>
+            <h3 class="text-xl font-semibold">Certified</h3>
+            <p class="text-sm">We offer satisfactory product.</p>
+          </div>
         </div>
-      </div>
-      <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-        <img src="/icons/warranty.svg" width="60" height="60" alt="Support 24/7" loading="lazy" />
-        <div>
-          <h3 class="text-xl font-semibold">Standard warranty</h3>
-          <p class="text-sm">We provide 2 years warranty</p>
+        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
+          <img src="/icons/warranty.svg" width="60" height="60" alt="Support 24/7" loading="lazy" />
+          <div>
+            <h3 class="text-xl font-semibold">Standard warranty</h3>
+            <p class="text-sm">We provide 2 years warranty</p>
+          </div>
         </div>
       </div>
     </section>
