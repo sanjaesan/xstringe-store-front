@@ -47,7 +47,7 @@ useSeoMeta({
         imgSrc="/images/amd-banner.png"
         text="Unlock unparalleled gaming experiences with"
         subtext="Radeon™ RX 9000 Series PCs Available Now."
-        shopLink="/product"
+        shopLink="/products?search=radeon"
       />
     </section>
     <section class="container my-16" v-if="popularProducts">
@@ -101,7 +101,7 @@ useSeoMeta({
         imgSrc="/images/amd-banner.png"
         text="Powering the Future of Creativity and Play"
         subtext="NVIDIA® GeForce RTX™ 5000 Series cards Available Now."
-        shopLink="/product"
+        shopLink="/products?search=nvidia"
       />
     </section>
   </main>
