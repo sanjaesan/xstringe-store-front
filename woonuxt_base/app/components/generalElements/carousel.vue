@@ -16,7 +16,7 @@
               placeholder
               placeholder-class="blur-xl"
             />
-            <div class="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-l from-gray-200 md:bg-none">
+            <div class="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-l from-black-800 md:bg-none">
               <div class="container">
                 <h1 class="text-3xl font-bold md:mb-4 md:text-4xl lg:text-5xl">{{ slide.title }}</h1>
                 <h2 class="text-lg font-bold md:mb-4 lg:text-3xl">{{ slide.subtitle }}</h2>
