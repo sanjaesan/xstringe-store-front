@@ -42,7 +42,7 @@ const setDefaultAttributes = () => {
 };
 
 const className = (name: string) => `name-${name.toLowerCase()}`;
-const sampleImage = 'https://cdn.shopify.com/s/files/1/0228/7629/1136/files/G2FocusBlack.png?v=1696524617';
+const sampleImage = '';
 onMounted(() => {
   setDefaultAttributes();
   updateAttrs();
@@ -115,18 +115,34 @@ onMounted(() => {
         </Accordion>
       </div>
 
-      <!-- DROPDOWN -->
-      <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8" class="flex flex-wrap py-2 relative justify-between">
-        <div class="grid gap-2">
-          <div class="text-sm">
-            {{ attr.label }} <span v-if="activeVariations.length" class="text-black-400">{{ getSelectedName(attr, activeVariations[i]) }}</span>
-          </div>
-          <select :id="attr.name" :ref="attr.name" :name="attr.name" required class="border-white shadow" @change="updateAttrs">
-            <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
-            <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
-          </select>
-        </div>
+      <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8">
+        <Accordion>
+          <template #title>
+            <div class="text-black-300">
+              <div class="text-base font-medium">{{ attr.label }}</div>
+              <span v-if="activeVariations.length" class="text-sm text-black-400 font-normal">
+                {{ getSelectedName(attr, activeVariations[i]) }}
+              </span>
+            </div>
+          </template>
+          <template #content>
+            <div class="relative">
+              <select
+                :id="attr.name"
+                :ref="attr.name"
+                :name="attr.name"
+                required
+                class="border-white shadow w-full focus:outline-none"
+                @change="updateAttrs"
+              >
+                <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
+                <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
+              </select>
+            </div>
+          </template>
+        </Accordion>
       </div>
+
 
       <!-- CHECKBOXES -->
       <div v-else>
