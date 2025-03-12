@@ -17,7 +17,7 @@
       title: 'The Future is Now.',
       subtitle: 'Level Up Your Reality.',
       description: 'Explore the pinnacle of creativity and high-performance tech. Elevate your experience.',
-      link: '/product-category/custom',
+      link: '/product-category/made-to-order',
       alt: 'desktop'
     },
     {

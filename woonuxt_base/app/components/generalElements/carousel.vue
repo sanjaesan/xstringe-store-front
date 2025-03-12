@@ -3,27 +3,29 @@
       <div class="carousel-container overflow-hidden relative">
         <div class="carousel-track flex transition-transform duration-500" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
           <div v-for="(slide, index) in slides" :key="index" class="carousel-slide flex-shrink-0 w-full relative">
-            <NuxtImg
-              :width="1400"
-              :height="800"
-              class="object-cover w-full h-[420px] lg:h-[560px] xl:h-[640px]"
-              :src="slide.img"
-              :alt="slide.alt"
-              loading="eager"
-              sizes="sm:100vw md:1400px"
-              fetchpriority="high"
-              preload
-              placeholder
-              placeholder-class="blur-xl"
-            />
-            <div class="absolute inset-0 flex flex-col items-start justify-center bg-gradient-to-l from-black-800 md:bg-none">
-              <div class="container">
+           <div class="h-[420px] lg:h-[560px] xl:h-[640px] relative">
+              <NuxtImg
+                :width="1400"
+                :height="800"
+                class="object-cover object-[80%] w-full h-full"
+                :src="slide.img"
+                :alt="slide.alt"
+                loading="eager"
+                sizes="sm:100vw md:1400px"
+                fetchpriority="high"
+                preload
+                placeholder
+                placeholder-class="blur-xl"
+              />
+           </div>
+            <div class="relative md:absolute md:inset-0 md:flex md:flex-col md:items-start md:justify-center md:from-gray-200/50 md:bg-opacity-50">
+              <div class="container pb-16 p-4 md:p-0 text-center md:text-left">
                 <h1 class="text-3xl font-bold md:mb-4 md:text-4xl lg:text-5xl">{{ slide.title }}</h1>
                 <h2 class="text-lg font-bold md:mb-4 lg:text-3xl">{{ slide.subtitle }}</h2>
-                <div class="max-w-sm mb-8 text-md font-light lg:max-w-md text-balance">
+                <div class="max-w-sm md:mx-0 mx-auto mb-4 md:mb-8 text-md font-light lg:max-w-md text-balance">
                   <p>{{ slide.description }}</p>
                 </div>
-                <NuxtLink class="px-6 py-3 font-bold text-white bg-gray-800 rounded-xl hover:bg-gray-800" :to="slide.link">Shop now</NuxtLink>
+                <NuxtLink class="px-6 py-3 font-bold text-white bg-gray-800 rounded-xl hover:bg-white hover:text-primary" :to="slide.link">Shop now</NuxtLink>
               </div>
             </div>
           </div>

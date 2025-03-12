@@ -1,7 +1,7 @@
 <script setup>
 const { updateShippingMethod } = useCart();
 const runtimeConfig = useRuntimeConfig();
-const currencySymbol = runtimeConfig?.public?.CURRENCY_SYMBOL || '$';
+const currencySymbol = runtimeConfig?.public?.CURRENCY_SYMBOL || '₦';
 const props = defineProps({
   options: { type: Array, required: true },
   activeOption: { type: String, required: true },
@@ -35,7 +35,7 @@ const setActiveOption = async (id) => {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
   .option {
-    @apply bg-white border rounded-lg text-gray-600 cursor-pointer flex flex-1 text-sm py-3 px-4 gap-2 items-center hover:border-purple-300;
+    @apply bg-white border rounded-lg text-gray-600 cursor-pointer flex flex-1 text-sm py-3 px-4 gap-2 items-center hover:border-gray-400;
 
     &.active-option {
       @apply border-primary cursor-default border-opacity-50 shadow-sm pointer-events-none;
