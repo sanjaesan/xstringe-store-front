@@ -21,7 +21,7 @@
     <div
       class="relative overflow-hidden transition-all duration-700"
       :class="[
-        isActive && height ? `max-h-[${height}px]` : isActive ? 'max-h-[220px]' : 'max-h-0',
+        isActive ? 'max-h-[320px]' : 'max-h-0',
         {
           'border-b border-black-200': isAccordion,
         },
@@ -45,10 +45,6 @@
     modelValue: {
       type: Boolean,
       default: false,
-    },
-    height: {
-      type: Number,
-      default: 0,
     },
   });
   const emit = defineEmits(['update:modelValue']);

@@ -81,7 +81,7 @@ onMounted(() => {
 
       <!-- COLOR SWATCHES -->
       <div v-else-if="attr.name == 'pa_color' || attr.name == 'color'">
-        <Accordion :height="attr.height">
+        <Accordion>
           <template #title>
             <div class="text-black-300">
                 <div class="text-base font-medium">{{ $t('messages.general.color') }}</div>
@@ -130,7 +130,7 @@ onMounted(() => {
 
       <!-- CHECKBOXES -->
       <div v-else>
-        <Accordion :height="attr.height">
+        <Accordion>
           <template #title>
             <div class="flex items-center">
               <div class="hidden mr-4">
