@@ -14,8 +14,8 @@ const { wishlistLink } = useAuth();
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">Information</div>
         <div class="text-sm">
-          <a href="/" class="py-1.5 block">Careers</a>
-          <a href="/" class="py-1.5 block">Press</a>
+          <a href="/" class="py-1.5 block">Terms & Conditions</a>
+          <a href="/" class="py-1.5 block">Warranty</a>
           <a href="/" class="py-1.5 block">FAQ's</a>
         </div>
       </div>
@@ -25,7 +25,6 @@ const { wishlistLink } = useAuth();
           <NuxtLink to="/products" class="py-1.5 block">{{ $t('messages.shop.newArrivals') }}</NuxtLink>
           <NuxtLink to="/products?filter=sale[true]" class="py-1.5 block">On sale</NuxtLink>
           <NuxtLink to="/products?orderby=rating&order=ASC&filter=rating[1]" class="py-1.5 block">Top rated</NuxtLink>
-          <!-- <a href="/" class="py-1.5 block">{{ $t('messages.shop.giftCards') }}</a> -->
         </div>
       </div>
       <div class="w-3/7 lg:w-auto">
@@ -33,8 +32,7 @@ const { wishlistLink } = useAuth();
         <div class="text-sm">
           <NuxtLink to="/" class="py-1.5 block">Contact Us</NuxtLink>
           <a href="/" class="py-1.5 block">Shipping & Returns</a>
-          <a href="/" class="py-1.5 block">Privacy Policy</a>
-          <a href="/" class="py-1.5 block">Terms & Conditions</a>
+          <a href="/privacy-policy" class="py-1.5 block">Privacy Policy</a>
         </div>
       </div>
       <div class="w-3/7 lg:w-auto">
@@ -43,7 +41,6 @@ const { wishlistLink } = useAuth();
           <NuxtLink to="/my-account/" class="py-1.5 block">{{ $t('messages.account.myAccount') }}</NuxtLink>
           <NuxtLink to="/my-account/?tab=orders" class="py-1.5 block">{{ $t('messages.shop.orderHistory') }}</NuxtLink>
           <NuxtLink :to="wishlistLink" class="py-1.5 block">{{ $t('messages.shop.wishlist') }}</NuxtLink>
-          <a href="/" class="py-1.5 block">{{ $t('messages.general.newsletter') }}</a>
         </div>
       </div>
     </div>
