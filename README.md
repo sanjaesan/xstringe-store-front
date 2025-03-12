@@ -1,1 +1,1 @@
-# Xstringe Store Front with Vuejs+Nuxt
+# xstringe Store Frontend
