@@ -7,7 +7,7 @@
               <NuxtImg
                 :width="1400"
                 :height="800"
-                class="object-cover object-[80%] w-full h-full"
+                class="object-cover object-[75%] w-full h-full"
                 :src="slide.img"
                 :alt="slide.alt"
                 loading="eager"
