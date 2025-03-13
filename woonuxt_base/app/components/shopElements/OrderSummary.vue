@@ -12,14 +12,14 @@ const { cart, isUpdatingCart } = useCart();
 
     <AddCoupon class="my-8" />
 
-    <div class="grid gap-1 text-sm font-semibold text-gray-500">
+    <div class="grid gap-1 text-sm font-semibold text-gray-500 dark:text-gray-300">
       <div class="flex justify-between">
         <span>{{ $t('messages.shop.subtotal') }}</span>
-        <span class="text-gray-700 tabular-nums" v-html="cart.subtotal" />
+        <span class="text-gray-700 dark:text-gray-400 tabular-nums" v-html="cart.subtotal" />
       </div>
       <div class="flex justify-between">
         <span>{{ $t('messages.general.shipping') }}</span>
-        <span class="text-gray-700 tabular-nums">
+        <span class="text-gray-700 dark:text-gray-400 tabular-nums">
           {{ parseFloat(cart.shippingTotal) > 0 ? '+' : '' }} {{ cart.shippingTotal }}
         </span>
       </div>
@@ -31,7 +31,7 @@ const { cart, isUpdatingCart } = useCart();
       </Transition>
       <div class="flex justify-between mt-4">
         <span>{{ $t('messages.shop.total') }}</span>
-        <span class="text-lg font-bold text-gray-700 tabular-nums" v-html="cart.total" />
+        <span class="text-lg font-bold text-gray-700 dark:text-gray-400 tabular-nums" v-html="cart.total" />
       </div>
     </div>
 

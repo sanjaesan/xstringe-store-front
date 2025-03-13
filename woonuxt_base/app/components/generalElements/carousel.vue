@@ -20,12 +20,17 @@
            </div>
             <div class="relative md:absolute md:inset-0 md:flex md:flex-col md:items-start md:justify-center md:from-gray-200/50 md:bg-opacity-50">
               <div class="container pb-16 p-4 md:p-0 text-center md:text-left">
-                <h1 class="text-3xl font-bold md:mb-4 md:text-4xl lg:text-5xl">{{ slide.title }}</h1>
-                <h2 class="text-lg font-bold md:mb-4 lg:text-3xl">{{ slide.subtitle }}</h2>
-                <div class="max-w-sm md:mx-0 mx-auto mb-4 md:mb-8 text-md font-light lg:max-w-md text-balance">
+                <h1 class="text-3xl font-bold md:mb-4 md:text-4xl lg:text-5xl" :class="[slide.class ? slide.class.title : null]">{{ slide.title }}</h1>
+                <h2 class="text-lg font-bold md:mb-4 lg:text-3xl" :class="[slide.class ? slide.class.subtitle : null]">{{ slide.subtitle }}</h2>
+                <div class="max-w-sm md:mx-0 mx-auto mb-4 md:mb-8 text-md font-medium lg:max-w-md text-balance" :class="[slide.class ? slide.class.description : null]">
                   <p>{{ slide.description }}</p>
                 </div>
-                <NuxtLink class="px-6 py-3 font-bold text-white bg-gray-800 rounded-xl hover:bg-white hover:text-primary" :to="slide.link">Shop now</NuxtLink>
+                <NuxtLink 
+                  class="px-6 py-3 font-normal text-white bg-gray-800 rounded-xl hover:bg-gray-800 dark:bg-night-shade hover:text-gray-200 dark:hover:bg-night-shadow" 
+                  :class="[slide.class ? slide.class.actionButton : null]" :to="slide.link"
+                >
+                  {{slide.actionText || 'Shop now'}}
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -82,9 +87,10 @@
   });
   </script>
 
-  <style scoped>
+  <style scoped lang="postcss">
   .carousel-container {
     width: 100%;
+    @apply dark:text-gray-900
   }
   .carousel-track {
     display: flex;

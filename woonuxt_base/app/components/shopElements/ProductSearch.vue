@@ -13,14 +13,16 @@ watch(getSearchQuery, (value) => {
 </script>
 
 <template>
-  <form class="relative items-center flex-1 -space-x-px rounded-md shadow-sm" @submit.prevent="setSearchQuery(searchQuery)">
+  <form class="relative items-center flex-1 -space-x-px rounded-md shadow-sm product-search-icons" @submit.prevent="setSearchQuery(searchQuery)">
     <Icon name="ion:search-outline" size="20" class="absolute z-10 hover:bg-primary  opacity-100 pointer-events-none left-2" />
     <input
       id="product-search-input"
       v-model="searchQuery"
       type="text"
       :placeholder="$t('messages.shop.searchProducts')"
-      class="z-0 inline-flex items-center w-full p-2 pl-10 text-sm text-black-500 border border-black-300 rounded-md shadow-inner outline-none bg-black-50 shadow-black-200 focus:outline-none hover:border-primary" />
+      class="z-0 inline-flex items-center w-full p-2 pl-10 text-sm text-gray-500 dark:text-gray-300 rounded-md outline-none border dark:border-0 border-black-300 bg-black-50 dark:bg-night-shade placeholder-gray-500 dark:placeholder-gray-300"
+    />
+
     <span
       v-if="searchQuery"
       class="absolute z-10 flex items-center gap-1 px-2 py-1 text-xs rounded cursor-pointer bg-black bg-opacity-50 hover:bg-primary text-white right-2"
@@ -30,3 +32,11 @@ watch(getSearchQuery, (value) => {
     </span>
   </form>
 </template>
+
+<style scoped lang="postcss">
+.product-search-icons {
+  .iconify:hover {
+    @apply text-crimson
+  }
+}
+</style>

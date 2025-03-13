@@ -95,7 +95,7 @@ const disabledAddToCart = computed(() => {
 
         <div class="lg:max-w-md xl:max-w-lg md:py-2 w-full">
           <div class="mb-4">
-            <div class="flex flex-col">
+            <div class="flex flex-col dark:text-gray-300">
               <h1 class="flex flex-wrap items-center gap-2 mb-2 text-2xl font-semibold">
                 {{ type.name }}
                 <LazyWPAdminLink :link="`/wp-admin/post.php?post=${product.databaseId}&action=edit`">Edit</LazyWPAdminLink>
@@ -131,7 +131,7 @@ const disabledAddToCart = computed(() => {
               </div>
             </div>
           </div>
-          <div class="mb-8 font-light prose" v-html="product.shortDescription" />
+          <div class="mb-8 font-light prose dark:text-gray-300" v-html="product.shortDescription" />
           <hr />
           <form @submit.prevent="addToCart(selectProductInput)">
             <hr />
@@ -151,7 +151,7 @@ const disabledAddToCart = computed(() => {
                 type="number"
                 min="1"
                 aria-label="Quantity"
-                class="bg-white border rounded-lg flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none" />
+                class="bg-white dark:text-gray-300 dark:bg-night-shade border rounded-lg flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none" />
               <AddToCartButton class="flex-1 w-full" :disabled="disabledAddToCart" :class="{ loading: isUpdatingCart }" />
             </div>
             <a

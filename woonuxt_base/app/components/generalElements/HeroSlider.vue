@@ -10,7 +10,14 @@
       subtitle: 'Elevate your daily life.',
       description: 'Experience the next generation of smart solutions.',
       link: '/product-category/desktop',
-      alt: 'desktop'
+      alt: 'desktop',
+      actionText: 'Learn more',
+      class: {
+        title: 'text-white darken-2',
+        subtitle: 'text-white  darken-4',
+        description: 'text-white',
+        actionButton: 'bg-gray-200',
+      },
     },
     { 
       img: '/images/hero-g.png',
@@ -18,7 +25,13 @@
       subtitle: 'Level Up Your Reality.',
       description: 'Explore the pinnacle of creativity and high-performance tech. Elevate your experience.',
       link: '/product-category/made-to-order',
-      alt: 'desktop'
+      alt: 'desktop',
+      actionText: 'Shop Desktops',
+      class: {
+        title: 'text-white darken-2',
+        description: 'text-gray-200 darken-2',
+        actionButton: 'bg-primary',
+      }
     },
     {
       img: '/images/hero-w.png',

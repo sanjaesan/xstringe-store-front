@@ -19,6 +19,11 @@ useSeoMeta({
   ogImage: siteImage,
   twitterCard: `summary_large_image`,
 });
+
+const cardClass = "flex items-center gap-4 p-6 bg-white dark:bg-night-shade rounded-lg"
+const headerTextClass = "text-xl font-semibold"
+const textClass = "text-sm";
+const imgClass = "dark:bg-gray-300 p-1 rounded-full"
 </script>
 
 <template>
@@ -57,34 +62,34 @@ useSeoMeta({
       </div>
       <ProductRow :products="popularProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <section class="container ">
+    <section class="container">
       <div class="grid gap-4 my-24 md:grid-cols-2 lg:grid-cols-4">
-        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-          <img src="/icons/shipping.svg" width="60" height="60" alt="Free Shipping" loading="lazy" />
+        <div :class="cardClass" class="shipping">
+          <img src="/icons/shipping.svg" :class="imgClass" class="py-3.5" width="60" height="60" alt="Free Shipping" loading="lazy" />
           <div>
-            <h3 class="text-xl font-semibold">Free Shipping</h3>
-            <p class="text-sm">Desktops come with free shipping</p>
+            <h3 :class="headerTextClass">Free Shipping</h3>
+            <p :class="textClass">Desktops come with free shipping</p>
           </div>
         </div>
-        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-          <img src="/icons/call.svg" width="60" height="60" alt="Money Back" loading="lazy" />
+        <div :class="cardClass" class="call">
+          <img src="/icons/call.svg" :class="imgClass" width="60" height="60" alt="Money Back" loading="lazy" />
           <div>
-            <h3 class="text-xl font-semibold">Support</h3>
-            <p class="text-sm">We provide 24/7 support.</p>
+            <h3 :class="headerTextClass">Support</h3>
+            <p :class="textClass">We provide 24/7 support.</p>
           </div>
         </div>
-        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-          <img src="/icons/certified.svg" width="60" height="60" alt="Secure Payment" loading="lazy" />
+        <div :class="cardClass" class="certified">
+          <img src="/icons/certified.svg" :class="imgClass" width="60" height="60" alt="Secure Payment" loading="lazy" />
           <div>
-            <h3 class="text-xl font-semibold">Certified</h3>
-            <p class="text-sm">We offer satisfactory product.</p>
+            <h3 :class="headerTextClass">Certified</h3>
+            <p :class="textClass">We offer satisfactory product.</p>
           </div>
         </div>
-        <div class="flex items-center gap-8 p-8 bg-white rounded-lg">
-          <img src="/icons/warranty.svg" width="60" height="60" alt="Support 24/7" loading="lazy" />
+        <div :class="cardClass" class="warranty">
+          <img src="/icons/warranty.svg" :class="imgClass" width="60" height="60" alt="Support 24/7" loading="lazy" />
           <div>
-            <h3 class="text-xl font-semibold">Standard warranty</h3>
-            <p class="text-sm">We provide 2 years warranty</p>
+            <h3 :class="headerTextClass">Standard warranty</h3>
+            <p :class="textClass">We provide 2 years warranty</p>
           </div>
         </div>
       </div>

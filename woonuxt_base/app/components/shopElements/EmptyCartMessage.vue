@@ -10,7 +10,7 @@ const { toggleCart } = useCart();
     <NuxtLink
       to="/products"
       @click="toggleCart(false)"
-      class="flex items-center justify-center gap-3 p-2 px-3 mt-4 font-semibold text-center text-white rounded-lg shadow-md bg-black hover:bg-primary">
+      class="flex items-center justify-center gap-3 p-2 px-3 mt-4 font-semibold text-center text-white rounded-lg shadow-md bg-black dark:bg-primary hover:bg-primary dark:hover:bg-night-shadow">
       {{ $t('messages.shop.browseOurProducts') }}
     </NuxtLink>
   </div>

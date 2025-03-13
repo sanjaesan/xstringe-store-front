@@ -52,8 +52,8 @@ const moveToWishList = () => {
         <ProductPrice class="mt-1 text-xs" :sale-price="productType.salePrice" :regular-price="productType.regularPrice" />
       </div>
       <div class="inline-flex gap-2 flex-col items-end">
-        <QuantityInput :item />
-        <div class="text-xs text-gray-400 group-hover:text-gray-700 flex leading-none items-center">
+        <QuantityInput item />
+        <div class="text-xs text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 flex leading-none items-center">
           <button v-if="storeSettings.showMoveToWishlist" class="mr-2 pr-2 border-r" @click="moveToWishList" type="button">Move to Wishlist</button>
           <button
             title="Remove Item"

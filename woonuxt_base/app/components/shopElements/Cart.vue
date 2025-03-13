@@ -40,3 +40,9 @@ const { cart, toggleCart, isUpdatingCart } = useCart();
     </div>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.bg-night .iconify {
+  @apply dark:text-gray-300
+}
+</style>
