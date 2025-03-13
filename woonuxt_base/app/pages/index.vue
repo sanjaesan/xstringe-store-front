@@ -8,7 +8,7 @@ const newProducts = productData1.value.products?.nodes || [];
 const { data: productData2 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.POPULARITY });
 const popularProducts = productData2.value.products?.nodes || [];
 
-const { data: productData3 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.POPULARITY });
+const { data: productData3 } = await useAsyncGql('getProducts', { first: 5, orderby: ProductsOrderByEnum.RATING });
 const ratedProducts = productData3.value.products?.nodes || [];
 
 useSeoMeta({
