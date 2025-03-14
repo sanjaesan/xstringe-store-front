@@ -1,1 +1,1 @@
-# xstringe Store Front
+# xstringe Store Frontend
