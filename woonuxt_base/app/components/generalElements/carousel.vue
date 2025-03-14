@@ -42,11 +42,11 @@
       </div>
     </div>
   </template>
-  
+
   <script setup>
   import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/24/solid';
   import { onMounted, onUnmounted, ref } from 'vue';
-  
+
   const props = defineProps({
     slides: {
       type: Array,
@@ -57,31 +57,31 @@
       }
     }
   });
-  
+
   const currentIndex = ref(0);
   const intervalId = ref(null); // Added intervalId ref
-  
+
   const nextSlide = () => {
     currentIndex.value = (currentIndex.value + 1) % props.slides.length;
   };
-  
+
   const prevSlide = () => {
     currentIndex.value = (currentIndex.value - 1 + props.slides.length) % props.slides.length;
   };
-  
+
   const goToSlide = (index) => {
     currentIndex.value = index;
   };
-  
+
   onMounted(() => {
     intervalId.value = setInterval(nextSlide, 5000); // Set interval to 5 seconds
   });
-  
+
   onUnmounted(() => {
     clearInterval(intervalId.value); // Clear interval on unmount
   });
   </script>
-  
+
   <style scoped>
   .carousel-container {
     width: 100%;
