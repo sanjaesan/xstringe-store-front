@@ -14,23 +14,16 @@ const { wishlistLink } = useAuth();
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">Information</div>
         <div class="text-sm">
-          <a href="/" class="py-1.5 block">Terms & Conditions</a>
-          <a href="/" class="py-1.5 block">Warranty</a>
+          <a href="/" class="py-1.5 block">Careers</a>
+          <a href="/" class="py-1.5 block">Financing</a>
           <a href="/" class="py-1.5 block">FAQ's</a>
         </div>
       </div>
-      <div class="w-3/7 lg:w-auto">
-        <div class="mb-1 font-semibold">Products</div>
-        <div class="text-sm">
-          <NuxtLink to="/products" class="py-1.5 block">{{ $t('messages.shop.newArrivals') }}</NuxtLink>
-          <NuxtLink to="/products?filter=sale[true]" class="py-1.5 block">On sale</NuxtLink>
-          <NuxtLink to="/products?orderby=rating&order=ASC&filter=rating[1]" class="py-1.5 block">Top rated</NuxtLink>
-        </div>
-      </div>
+      
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">{{ $t('messages.general.customerService') }}</div>
         <div class="text-sm">
-          <NuxtLink to="/" class="py-1.5 block">Contact Us</NuxtLink>
+          <NuxtLink to="/" class="py-1.5 block">Warranty</NuxtLink>
           <a href="/" class="py-1.5 block">Shipping & Returns</a>
           <a href="/privacy-policy" class="py-1.5 block">Privacy Policy</a>
         </div>
