@@ -42,12 +42,12 @@ useSeoMeta({
       </div>
       <ProductRow :products="newProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <section class="container ">
+    <section class="container mb-10 ">
       <HeroBanner 
-        imgSrc="/images/amd-banner.png"
-        text="Unlock unparalleled gaming experiences with"
-        subtext="Radeon™ RX 9000 Series PCs Available Now."
-        shopLink="/products?search=radeon"
+        imgSrc="/images/nvidia-banner.png"
+        text="Powering the Future of Creativity and Play"
+        subtext="NVIDIA® GeForce RTX™ 5000 Series cards Available Now."
+        shopLink="/products?search=nvidia"
       />
     </section>
     <section class="container my-16" v-if="popularProducts">
@@ -96,12 +96,12 @@ useSeoMeta({
       </div>
       <ProductRow :products="ratedProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <section class="container mb-10 ">
+    <section class="container ">
       <HeroBanner 
         imgSrc="/images/amd-banner.png"
-        text="Powering the Future of Creativity and Play"
-        subtext="NVIDIA® GeForce RTX™ 5000 Series cards Available Now."
-        shopLink="/products?search=nvidia"
+        text="Unlock unparalleled gaming experiences with"
+        subtext="Radeon™ RX 9000 Series PCs Available Now."
+        shopLink="/products?search=radeon"
       />
     </section>
   </main>
