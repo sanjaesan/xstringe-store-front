@@ -42,7 +42,7 @@ useSeoMeta({
       </div>
       <ProductRow :products="newProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <section class="container mb-10 ">
+    <section class="container">
       <HeroBanner 
         imgSrc="/images/nvidia-banner.png"
         text="Powering the Future of Creativity and Play"
@@ -96,7 +96,7 @@ useSeoMeta({
       </div>
       <ProductRow :products="ratedProducts" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5 mt-8" />
     </section>
-    <section class="container ">
+    <section class="container mb-10">
       <HeroBanner 
         imgSrc="/images/amd-banner.png"
         text="Unlock unparalleled gaming experiences with"
