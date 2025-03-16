@@ -195,6 +195,6 @@ onMounted(() => {
 }
 
 input[type='radio']:checked ~ span {
-  @apply outline outline-2 outline-gray-500;
+  @apply outline outline-2 outline-gray-900;
 }
 </style> 
