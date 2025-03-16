@@ -22,7 +22,7 @@ const updateAttrs = () => {
     const radioValue = document.querySelector(`.name-${row.name.toLowerCase()}:checked`) as HTMLInputElement;
     const dropdownValue = document.querySelector(`#${row.name}`) as HTMLSelectElement;
     const name = row.name.charAt(0).toLowerCase() + row.name.slice(1);
-    const value = radioValue?.value ?? dropdownValue?.value ?? '';
+    const value = radioValue?.value ?? dropdownValue?.value ?? row?.terms?.nodes?.[0]?.slug ?? ''; // Added fallback
     return { name, value };
   });
 
@@ -42,7 +42,7 @@ const setDefaultAttributes = () => {
 };
 
 const className = (name: string) => `name-${name.toLowerCase()}`;
-const sampleImage = '';
+
 onMounted(() => {
   setDefaultAttributes();
   updateAttrs();
@@ -51,13 +51,19 @@ onMounted(() => {
 
 <template>
   <div class="flex flex-col gap-1 justify-between" v-if="attributes">
-    <div v-for="(attr, i) in attributes" :key="i">
-      <!-- LOCAL -->
-      <div v-if="attr.scope == 'LOCAL'" class="flex flex-wrap py-2 relative justify-between">
-      <div class="grid gap-2">
+    <div v-for="(attr, i) in attributes" :key="i" class="flex flex-wrap py-2 relative justify-between">
+
+      <div v-if="attr.terms?.nodes?.length === 1" class="grid gap-2">
+        <div class="text-sm">
+          {{ attr.label }}: {{ attr.terms.nodes[0].name }}
+        </div>
+        <input type="radio" :id="`${attr.terms.nodes[0].slug}_${i}`" :ref="attr.name" class="hidden name-{{attr.name.toLowerCase()}}" :name="attr.name" :value="attr.terms.nodes[0].slug" checked @change="updateAttrs" />
+      </div>
+
+      <div v-else-if="attr.scope == 'LOCAL'" class="grid gap-2">
         <div class="text-sm">
           {{ attr.label }}
-          <span v-if="activeVariations.length && activeVariations[i]" class="text-black-400">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
+          <span v-if="activeVariations.length && activeVariations[i]" class="text-gray-400">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
         </div>
         <div class="flex gap-2">
           <span v-for="(option, index) in attr.options" :key="index">
@@ -77,116 +83,64 @@ onMounted(() => {
           </span>
         </div>
       </div>
-    </div>
 
-      <!-- COLOR SWATCHES -->
-      <div v-else-if="attr.name == 'pa_color' || attr.name == 'color'">
-        <Accordion>
-          <template #title>
-            <div class="text-black-300">
-                <div class="text-base font-medium">{{ $t('messages.general.color') }}</div>
-                <span v-if="activeVariations.length" class="text-sm text-black-400 font-normal">
-                  {{ getSelectedName(attr, activeVariations[i]) }}
-                </span>
-            </div>
-          </template>
-
-          <template #content>
-            <div class="flex gap-2">
-              <span v-for="(term, termIndex) in attr.terms.nodes" :key="termIndex">
-                <Tooltip :text="term.name">
-                  <label :for="`${term.slug}_${termIndex}`">
-                    <input
-                      :id="`${term.slug}_${termIndex}`"
-                      :ref="attr.name"
-                      class="hidden"
-                      :checked="termIndex == 0"
-                      type="radio"
-                      :class="className(attr.name)"
-                      :name="attr.name"
-                      :value="term.slug"
-                      @change="updateAttrs" />
-                    <span class="color-button" :class="`color-${term.slug}`" :title="`${attr.name}: ${term}`"></span>
-                  </label>
-                </Tooltip>
-              </span>
-            </div>
-          </template>
-        </Accordion>
-      </div>
-
-      <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8">
-        <Accordion>
-          <template #title>
-            <div class="text-black-300">
-              <div class="text-base font-medium">{{ attr.label }}</div>
-              <span v-if="activeVariations.length" class="text-sm text-black-400 font-normal">
-                {{ getSelectedName(attr, activeVariations[i]) }}
-              </span>
-            </div>
-          </template>
-          <template #content>
-            <div class="relative">
-              <select
-                :id="attr.name"
-                :ref="attr.name"
-                :name="attr.name"
-                required
-                class="border-white shadow w-full focus:outline-none"
-                @change="updateAttrs"
-              >
-                <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
-                <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
-              </select>
-            </div>
-          </template>
-        </Accordion>
-      </div>
-
-
-      <!-- CHECKBOXES -->
-      <div v-else>
-        <Accordion>
-          <template #title>
-            <div class="flex items-center">
-              <div class="hidden mr-4">
-                <img :src="sampleImage" class="h-12 w-14 transition delay-150 duration-300 ease-in-out hover:scale-125" />
-              </div>
-              <div class="text-black-300">
-                <div class="text-base font-medium">{{ attr.label }}</div>
-                <span v-if="activeVariations.length" class="text-sm text-black-400 font-normal">
-                  {{ getSelectedName(attr, activeVariations[i]) }}
-                </span>
-              </div>
-            </div>
-        </template>
-
-        <template #content>
-          <div class="flex flex-wrap gap-3">
-            <span class="mt-2" v-for="(term, index) in attr.terms.nodes" :key="index">
-              <label class="radio-button text-center" :for="`${term.slug}_${index}`">
+      <div v-else-if="attr.name == 'pa_color' || attr.name == 'color'" class="grid gap-2">
+        <div class="text-sm">
+          {{ $t('messages.general.color') }}
+          <span v-if="activeVariations.length" class="text-gray-400">{{ getSelectedName(attr, activeVariations[i]) }}</span>
+        </div>
+        <div class="flex gap-2">
+          <span v-for="(term, termIndex) in attr.terms.nodes" :key="termIndex">
+            <Tooltip :text="term.name">
+              <label :for="`${term.slug}_${termIndex}`">
                 <input
-                  :id="`${term.slug}_${index}`"
+                  :id="`${term.slug}_${termIndex}`"
                   :ref="attr.name"
                   class="hidden"
-                  :checked="index == 0"
+                  :checked="termIndex == 0"
                   type="radio"
                   :class="className(attr.name)"
                   :name="attr.name"
                   :value="term.slug"
-                  @change="updateAttrs" 
-                />
-
-                <div class="m-h-[80px] hidden">
-                  <img :src="term.img || sampleImage" class="h-[90px] mx-auto" />
-                </div>
-
-                <span class="text-sm font-normal mt-1.5 outline-none focus-none" :class="`picker-${term.slug}`" :title="`${attr.name}: ${term.slug}`">{{ term.name }}</span>
+                  @change="updateAttrs" />
+                <span class="color-button" :class="`color-${term.slug}`" :title="`${attr.name}: ${term}`"></span>
               </label>
-            </span>
-          </div>
-        </template>
-      </Accordion>
+            </Tooltip>
+          </span>
+        </div>
+      </div>
+
+      <div v-else-if="attr.terms.nodes && attr.terms.nodes?.length > 8" class="grid gap-2">
+        <div class="text-sm">
+          {{ attr.label }} <span v-if="activeVariations.length" class="text-gray-400">{{ getSelectedName(attr, activeVariations[i]) }}</span>
+        </div>
+        <select :id="attr.name" :ref="attr.name" :name="attr.name" required class="border-white shadow" @change="updateAttrs">
+          <option disabled hidden>{{ $t('messages.general.choose') }} {{ decodeURIComponent(attr.label) }}</option>
+          <option v-for="(term, dropdownIndex) in attr.terms.nodes" :key="dropdownIndex" :value="term.slug" v-html="term.name" :selected="dropdownIndex == 0" />
+        </select>
+      </div>
+
+      <div v-else class="grid gap-2">
+        <div class="text-sm">
+          {{ attr.label }} <span v-if="activeVariations.length" class="text-gray-400">: {{ getSelectedName(attr, activeVariations[i]) }}</span>
+        </div>
+        <div class="flex gap-2">
+          <span v-for="(term, index) in attr.terms.nodes" :key="index">
+            <label :for="`${term.slug}_${index}`">
+              <input
+                :id="`${term.slug}_${index}`"
+                :ref="attr.name"
+                class="hidden"
+                :checked="index == 0"
+                type="radio"
+                :class="className(attr.name)"
+                :name="attr.name"
+                :value="term.slug"
+                @change="updateAttrs" />
+              <span class="radio-button" :class="`picker-${term.slug}`" :title="`${attr.name}: ${term.slug}`">{{ term.name }}</span>
+            </label>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -239,4 +193,8 @@ onMounted(() => {
 .color-black {
   @apply bg-black;
 }
-</style>
+
+input[type='radio']:checked ~ span {
+  @apply outline outline-2 outline-gray-500;
+}
+</style> 
