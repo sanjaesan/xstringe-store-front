@@ -20,6 +20,7 @@ watch(cart, (val) => {
     :class="{ disabled: disabled }"
     :disabled="disabled"
     @click="isLoading = true">
+    <Icon name="ion:cart-outline" size="20" class="transition-transform transform transform-origin-center" />
     <span>{{ addToCartButtonText }}</span>
     <LoadingIcon v-if="isLoading" stroke="4" size="12" color="#fff" />
   </button>
