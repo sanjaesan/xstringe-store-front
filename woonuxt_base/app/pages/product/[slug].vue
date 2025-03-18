@@ -148,7 +148,7 @@ const disabledAddToCart = computed(() => {
             />
             <div
               v-if="isVariableProduct || isSimpleProduct"
-              class="lg:fixed bottom-0 left-0 z-10 flex items-center w-full gap-4 p-2 mt-12 lg:bg-white md:static md:bg-transparent bg-opacity-90 md:p-0"
+              class="z-10 flex items-center w-full gap-4 p-2 mt-12 md:static md:bg-transparent bg-opacity-90 md:p-0"
             >
               <!-- remove: hidden class to show quantity input field -->
               <input
@@ -163,9 +163,9 @@ const disabledAddToCart = computed(() => {
                 aria-label="Contact us"
                 title="Contact us"
                 @click.prevent="openWhatsapp"
-                class="bg-white border rounded-lg flex text-left p-2 w-20 gap-4 items-center justify-center focus:outline-none"
+                class="bg-gray-700 border rounded-lg flex text-left p-2 w-20 gap-4 items-center justify-center focus:outline-none"
               >
-                <Icon name="ion:logo-whatsapp" size="24" class="transition-transform transform transform-origin-center" />
+                <Icon name="ion:logo-whatsapp" size="24" class="text-white transition-transform transform transform-origin-center" />
               </button>
 
               <AddToCartButton
@@ -183,6 +183,7 @@ const disabledAddToCart = computed(() => {
             </a>
           </form>
           <div class="flex flex-wrap gap-4">
+            <ContactSeller seller_phone="15551234567" />
             <WishlistButton :product />
             <ShareButton :product />
           </div>
