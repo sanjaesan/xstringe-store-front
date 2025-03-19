@@ -50,7 +50,7 @@ function copyTextToClipboard() {
     })
 }
 
-watchwatch(showSellerContact.value, (value) => {
+watch(showSellerContact.value, (value) => {
     if(value) {
         // reset seller contact visibility after 10 secs
         setTimeout(() => {
