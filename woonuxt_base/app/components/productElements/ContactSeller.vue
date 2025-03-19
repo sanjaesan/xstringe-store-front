@@ -9,7 +9,7 @@
             <span v-if="!copied">{{ sellerContact }}</span>
             <span v-else>Copied!</span>
 
-            <Icon name="ion:call-outline" size="18" class="cursor-pointer text-blue-500" @click.prevent.stop="openContactSeller" />
+            <Icon name="ion:call-outline" size="18" class="cursor-pointer lg:hidden text-blue-500" @click.prevent.stop="openContactSeller" />
             <Icon name="ion:logo-whatsapp" size="18" class="cursor-pointer" style="color: #25D366" @click.prevent.stop="triggerWhatsapp" />
             <Icon name="ion:copy-outline" size="18" class="cursor-pointer" @click.prevent.stop="copyTextToClipboard" />
         </template>
