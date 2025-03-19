@@ -8,7 +8,6 @@ const { addToCart, isUpdatingCart } = useCart();
 const { t } = useI18n();
 
 
-const { openWhatsapp } = useUtils();
 const slug = route.params.slug as string;
 
 const { data } = await useAsyncGql('getProduct', { slug });
@@ -150,23 +149,13 @@ const disabledAddToCart = computed(() => {
               v-if="isVariableProduct || isSimpleProduct"
               class="z-10 flex items-center w-full gap-4 p-2 mt-12 md:static md:bg-transparent bg-opacity-90 md:p-0"
             >
-              <!-- remove: hidden class to show quantity input field -->
               <input
                 v-model="quantity"
                 type="number"
                 min="1"
                 aria-label="Quantity"
-                class="bg-white border rounded-lg hidden flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none"
+                class="bg-white border rounded-lg flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none"
               />
-
-              <button
-                aria-label="Contact us"
-                title="Contact us"
-                @click.prevent="openWhatsapp"
-                class="bg-gray-700 border rounded-lg flex text-left p-2 w-20 gap-4 items-center justify-center focus:outline-none"
-              >
-                <Icon name="ion:logo-whatsapp" size="24" class="text-white transition-transform transform transform-origin-center" />
-              </button>
 
               <AddToCartButton
                 class="flex-1 w-full"
