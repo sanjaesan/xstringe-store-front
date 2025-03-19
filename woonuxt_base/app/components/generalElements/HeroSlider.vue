@@ -21,36 +21,20 @@
       alt: 'desktop'
     },
     {
-      img: '/images/hero-w.png',
-      title: 'Discover New Horizons.',
-      subtitle: 'Unleash Your Potential.',
+      img: '/images/hero-b.png',
+      title: 'Unleash Your Potential.',
+      subtitle: 'Precision. Power. Performance.',
       description: 'Dive into cutting-edge innovations and redefine your limits.',
       link: '/product-category/laptop',
       alt: 'laptop'
     },
-    // {
-    //   img: '/images/hero-gaming.png', 
-    //   title: 'Dominate the Game.',
-    //   subtitle: 'Precision. Power. Performance.',
-    //   description: 'Engineered for victory. Experience unparalleled gaming with our high-end rigs and peripherals.',
-    //   link: '/product-category/gaming-pcs', 
-    //   alt: 'gaming desktop'
-    // },
-    // {
-    //   img: '/images/hero-vr.png', 
-    //   title: 'Enter the Metaverse.',
-    //   subtitle: 'Immerse Yourself in Next-Gen Gaming.',
-    //   description: 'Break boundaries with cutting-edge VR and AR technology. Step into a new dimension of gaming.',
-    //   link: '/product-category/vr-ar', 
-    //   alt: 'virtual reality headset'
-    // },
-    // {
-    //   img: '/images/hero-peripherals.png',
-    //   title: 'Arm Yourself for Victory.',
-    //   subtitle: 'Ultimate Control. Unmatched Response.',
-    //   description: 'Equip yourself with the best gaming peripherals.',
-    //   link: '/product-category/gaming-peripherals',
-    //   alt: 'gaming peripherals'
-    // }
+    {
+      img: '/images/hero-w.png',
+      title: 'Arm Yourself for Victory.',
+      subtitle: 'Ultimate Control. Unmatched Response.',
+      description: 'Equip yourself with the best gaming accessories.',
+      link: '/product-category/accessories',
+      alt: 'accessories'
+    }
   ];
   </script>
