@@ -6,6 +6,9 @@ const { storeSettings } = useAppConfig();
 const { arraysEqual, formatArray, checkForVariationTypeOfAny } = useHelpers();
 const { addToCart, isUpdatingCart } = useCart();
 const { t } = useI18n();
+
+
+const { openWhatsapp } = useUtils();
 const slug = route.params.slug as string;
 
 const { data } = await useAsyncGql('getProduct', { slug });
@@ -145,14 +148,31 @@ const disabledAddToCart = computed(() => {
             />
             <div
               v-if="isVariableProduct || isSimpleProduct"
-              class="fixed bottom-0 left-0 z-10 flex items-center w-full gap-4 p-4 mt-12 bg-white md:static md:bg-transparent bg-opacity-90 md:p-0">
+              class="z-10 flex items-center w-full gap-4 p-2 mt-12 md:static md:bg-transparent bg-opacity-90 md:p-0"
+            >
+              <!-- remove: hidden class to show quantity input field -->
               <input
                 v-model="quantity"
                 type="number"
                 min="1"
                 aria-label="Quantity"
-                class="bg-white border rounded-lg flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none" />
-              <AddToCartButton class="flex-1 w-full" :disabled="disabledAddToCart" :class="{ loading: isUpdatingCart }" />
+                class="bg-white border rounded-lg hidden flex text-left p-2.5 w-20 gap-4 items-center justify-center focus:outline-none"
+              />
+
+              <button
+                aria-label="Contact us"
+                title="Contact us"
+                @click.prevent="openWhatsapp"
+                class="bg-gray-700 border rounded-lg flex text-left p-2 w-20 gap-4 items-center justify-center focus:outline-none"
+              >
+                <Icon name="ion:logo-whatsapp" size="24" class="text-white transition-transform transform transform-origin-center" />
+              </button>
+
+              <AddToCartButton
+                class="flex-1 w-full"
+                :disabled="disabledAddToCart"
+                :class="{ loading: isUpdatingCart }"
+              />
             </div>
             <a
               v-if="isExternalProduct && product.externalUrl"
@@ -163,15 +183,16 @@ const disabledAddToCart = computed(() => {
             </a>
           </form>
           <div class="flex flex-wrap gap-4">
+            <ContactSeller seller_phone="15551234567" />
             <WishlistButton :product />
             <ShareButton :product />
           </div>
         </div>
       </div>
-      <div v-if="product.description || product.reviews" class="my-32">
+      <div v-if="product.description || product.reviews" class="my-8 md:my-16 lg:my-24">
         <ProductTabs :product />
       </div>
-      <div class="my-32" v-if="product.related && storeSettings.showRelatedProducts">
+      <div class="my-16 lg:my-24" v-if="product.related && storeSettings.showRelatedProducts">
         <div class="mb-4 text-xl font-semibold">{{ $t('messages.shop.youMayLike') }}</div>
         <ProductRow :products="product.related.nodes" class="grid-cols-2 md:grid-cols-4 lg:grid-cols-5" />
       </div>
@@ -184,7 +205,7 @@ const disabledAddToCart = computed(() => {
   display: none;
 }
 
-input[type='number']::-webkit-inner-spin-button {
+input[type="number"]::-webkit-inner-spin-button {
   opacity: 1;
 }
 </style>
