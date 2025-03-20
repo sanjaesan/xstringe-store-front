@@ -163,6 +163,7 @@ const disabledAddToCart = computed(() => {
             </a>
           </form>
           <div class="flex flex-wrap gap-4">
+            <ContactSeller />
             <WishlistButton :product />
             <ShareButton :product />
           </div>
