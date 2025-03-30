@@ -6,7 +6,7 @@
       @click.prevent="toggleContactInfo"
     >
       <template v-if="!showSellerContact || copied">
-        <Icon name="ion:call-outline" size="18" v-if="!copied" />
+        <Icon name="ion:chatbubble-outline" size="18" v-if="!copied" />
         <span v-if="!copied">Contact Seller</span>
         <span v-else>Copied!</span>
       </template>
