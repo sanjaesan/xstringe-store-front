@@ -92,29 +92,9 @@ export function useCheckout() {
 
       const orderId = checkout?.order?.databaseId;
       const orderKey = checkout?.order?.orderKey;
-      const orderInputPaymentId = orderInput.value.paymentMethod.id;
-      const isPayPal = orderInputPaymentId === 'paypal' || orderInputPaymentId === 'ppcp-gateway';
-
-      // PayPal redirect
-      if ((await checkout?.redirect) && isPayPal) {
-        const frontEndUrl = window.location.origin;
-        let redirectUrl = checkout?.redirect ?? '';
-        const payPalReturnUrl = `${frontEndUrl}/checkout/order-received/${orderId}/?key=${orderKey}&from_paypal=true`;
-        const payPalCancelUrl = `${frontEndUrl}/checkout/?cancel_order=true&from_paypal=true`;
-
-        redirectUrl = replaceQueryParam('return', payPalReturnUrl, redirectUrl);
-        redirectUrl = replaceQueryParam('cancel_return', payPalCancelUrl, redirectUrl);
-        redirectUrl = replaceQueryParam('bn', 'WooNuxt_Cart', redirectUrl);
-
-        const isPayPalWindowClosed = await openPayPalWindow(redirectUrl);
-
-        if (isPayPalWindowClosed) {
-          router.push(`/checkout/order-received/${orderId}/?key=${orderKey}&fetch_delay=true`);
-        }
-      } else {
-        router.push(`/checkout/order-received/${orderId}/?key=${orderKey}`);
-      }
-
+      
+      router.push(`/checkout/order-received/${orderId}/?key=${orderKey}`);
+      
       if ((await checkout?.result) !== 'success') {
         alert('There was an error processing your order. Please try again.');
         window.location.reload();
