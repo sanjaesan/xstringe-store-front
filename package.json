@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
-    "@stripe/stripe-js": "^4.10.0",
+    "@paystack/inline-js": "^2.22.2",
     "@vueform/slider": "^2.1.10",
     "@vueuse/core": "^12.7.0"
   },
