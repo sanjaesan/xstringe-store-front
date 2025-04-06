@@ -6,7 +6,7 @@ export function useCheckout() {
       customerNote: '',
       paymentMethod: '',
       shipToDifferentAddress: false,
-      metaData: [{ key: 'order_via', value: 'WooNuxt' }],
+      metaData: [{ key: 'order_via', value: 'Xstringe' }],
     };
   });
 
@@ -46,6 +46,8 @@ export function useCheckout() {
     const billing = customer.value?.billing;
     const shipping = shipToDifferentAddress ? customer.value?.shipping : billing;
     const shippingMethod = cart.value?.chosenShippingMethods;
+    const total = cart.value?.total;
+
 
     try {
       let checkoutPayload: CheckoutInput = {
