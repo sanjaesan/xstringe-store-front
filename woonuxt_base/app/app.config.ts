@@ -10,7 +10,7 @@ export default defineAppConfig({
   baseUrl: 'https://xstringe.shop',
   siteImage: 'https://xstringe.shop/wp-content/uploads/2025/02/xstringe-logo-black.png',
   storeSettings: {
-    autoOpenCart: false,
+    autoOpenCart: true,
     showReviews: true,
     showFilters: true,
     showOrderByDropdown: true,
