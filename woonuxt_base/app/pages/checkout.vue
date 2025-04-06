@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import {  PaystackPop } from '@paystack/inline-js';
+import  PaystackPop  from '@paystack/inline-js';
 
 const { t } = useI18n();
 const { query } = useRoute();
 const { cart, isUpdatingCart, paymentGateways } = useCart();
 const { customer, viewer } = useAuth();
 const { orderInput, isProcessingOrder, proccessCheckout } = useCheckout();
-const runtimeConfig = useRuntimeConfig();
-const paystackKey = runtimeConfig.public?.PAYSTACK_SECRET_KEY || null;
+const paystackKey = "pk_test_149218e43b573fcce2ae9f602ca77fbe7e5a3c54";
 
 const buttonText = ref<string>(isProcessingOrder.value ? t('messages.general.processing') : t('messages.shop.checkoutButton'));
 const isCheckoutDisabled = computed<boolean>(() => isProcessingOrder.value || isUpdatingCart.value || !orderInput.value.paymentMethod);
 
 const isInvalidEmail = ref<boolean>(false);
-const elements = ref();
 const isPaid = ref<boolean>(false);
-// const paystack = new PaystackPop()
+const paystack = new PaystackPop()
 
 onBeforeMount(async () => {
   if (query.cancel_order) window.close();
@@ -23,36 +21,32 @@ onBeforeMount(async () => {
 
 const payNow = async () => {
   buttonText.value = t('messages.general.processing');
+  const amount = stringToInt(cart.value?.total) * 100
   try {
     if (orderInput.value.paymentMethod.id === 'paystack' && paystackKey) {
       paystack.newTransaction({
         key: paystackKey,
-        email: customer.value?.billing?.email,
-        amount: cart.value?.total * 100, 
-        onSuccess: (transaction) => {
+        email: customer.value?.billing?.email || viewer.value?.email || '',
+        amount: amount, 
+        onLoad: (response: any) => {
+          console.log('onLoad: ', response);
+        },
+        onSuccess: (transaction: any) => {
           console.log('Paystack payment successful:', transaction);
           isPaid.value = true;
           orderInput.value.transactionId = transaction.reference;
           proccessCheckout(isPaid.value); 
         },
-        onLoad: (response: any) => {
-          console.log('onLoad: ', response);
-        },
         onCancel: () => {
           console.log('Paystack payment cancelled.');
           buttonText.value = t('messages.shop.placeOrder');
-        },
-        onError: (error: any) => {
-          console.log('Error: ', error.message);
-          buttonText.value = t('messages.shop.placeOrder');
-        },
+        }
       });
     }
   } catch (error) {
     console.error(error);
     buttonText.value = t('messages.shop.placeOrder');
   }
-  proccessCheckout(isPaid.value);
 };
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -63,6 +57,16 @@ const checkEmailOnBlur = (email?: string | null): void => {
 
 const checkEmailOnInput = (email?: string | null): void => {
   if (email && isInvalidEmail.value) isInvalidEmail.value = !emailRegex.test(email);
+};
+
+const stringToInt = (str: string): number | null => {
+  if (typeof str === 'string') {
+    const numericStr = str.replace(/[^0-9.-]/g, ''); 
+    const parsedNumber = parseFloat(numericStr); 
+    return isNaN(parsedNumber) ? null : parsedNumber;
+  } else {
+    return null; 
+  }
 };
 
 useSeoMeta({
