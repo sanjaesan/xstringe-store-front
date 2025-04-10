@@ -146,7 +146,7 @@ export function useHelpers() {
    * @param {string} price - The price string to format.
    * @returns {string} The formatted price string.
    */
-  const formatPrice = (price: string): string => parseFloat(price).toLocaleString('en-US', { style: 'currency', currency: 'EUR' });
+  const formatPrice = (price: string): string => parseFloat(price).toLocaleString('en-NG', { style: 'currency', currency: 'NGN' });
 
   /**
    * Scrolls to the top of the page.
