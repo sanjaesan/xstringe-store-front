@@ -15,7 +15,7 @@
 
       <div class="w-full">
         <label for="billing-phone">{{ $t('messages.billing.phone') }}</label>
-        <input id="billing-phone" v-model="customer.billing.phone" placeholder="+1 234 567 8901" autocomplete="tel" type="tel" />
+        <input id="billing-phone" v-model="customer.billing.phone" placeholder="+234 567 890 1001" autocomplete="tel" type="tel" />
       </div>
 
       <div class="w-full">
@@ -25,7 +25,7 @@
 
       <div class="w-full">
         <label for="billing-address">{{ $t('messages.billing.address1') }}</label>
-        <input id="billing-address" v-model="customer.billing.address1" placeholder="123 Main St" autocomplete="address-line1" type="text" />
+        <input id="billing-address" v-model="customer.billing.address1" placeholder="1A Main St" autocomplete="address-line1" type="text" />
       </div>
 
       <div class="w-full">
@@ -35,7 +35,7 @@
 
       <div class="w-full">
         <label for="billing-city">{{ $t('messages.billing.city') }}</label>
-        <input id="billing-city" v-model="customer.billing.city" placeholder="New York" autocomplete="address-level2" type="text" />
+        <input id="billing-city" v-model="customer.billing.city" placeholder="Lagos" autocomplete="address-level2" type="text" />
       </div>
 
       <div class="w-full">
@@ -50,12 +50,12 @@
 
       <div class="w-full">
         <label for="billing-zip">{{ $t('messages.billing.zip') }}</label>
-        <input id="billing-zip" v-model="customer.billing.postcode" placeholder="10001" autocomplete="postal-code" type="text" />
+        <input id="billing-zip" v-model="customer.billing.postcode" placeholder="100101" autocomplete="postal-code" type="text" />
       </div>
 
       <div class="w-full col-span-full">
         <label for="billing-email">{{ $t('messages.billing.email') }}</label>
-        <input id="billing-email" v-model="customer.billing.email" placeholder="johndoe@email.com" autocomplete="email" type="email" required />
+        <input id="billing-email" v-model="customer.billing.email" placeholder="your@email.com" autocomplete="email" type="email" required />
       </div>
     </div>
 
@@ -99,7 +99,7 @@
 
       <div class="w-full">
         <label for="shipping-city">{{ $t('messages.billing.city') }}</label>
-        <input id="shipping-city" v-model="customer.shipping.city" placeholder="New York" autocomplete="address-level2" type="text" />
+        <input id="shipping-city" v-model="customer.shipping.city" placeholder="Lagos" autocomplete="address-level2" type="text" />
       </div>
 
       <div class="w-full">
@@ -114,7 +114,7 @@
 
       <div class="w-full">
         <label for="shipping-zip">{{ $t('messages.billing.zip') }}</label>
-        <input id="shipping-zip" v-model="customer.shipping.postcode" placeholder="10001" autocomplete="postal-code" type="text" />
+        <input id="shipping-zip" v-model="customer.shipping.postcode" placeholder="100101" autocomplete="postal-code" type="text" />
       </div>
     </div>
 
