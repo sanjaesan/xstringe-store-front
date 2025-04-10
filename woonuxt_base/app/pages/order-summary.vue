@@ -17,15 +17,7 @@ const isSummaryPage = computed<boolean>(() => name === 'order-summary');
 const isCheckoutPage = computed<boolean>(() => name === 'order-received');
 const orderIsNotCompleted = computed<boolean>(() => order.value?.status !== OrderStatusEnum.COMPLETED);
 const hasDiscount = computed<boolean>(() => !!parseFloat(order.value?.rawDiscountTotal || '0'));
-const downloadableItems = computed(() => order.value?.downloadableItems?.nodes || []);
 
-onBeforeMount(() => {
-  /**
-   * This is to close the child PayPal window we open on the checkout page.
-   * It will fire off an event that redirects the parent window to the order summary page.
-   */
-  if (isCheckoutPage.value && (query.cancel_order || query.from_paypal || query.PayerID)) window.close();
-});
 
 onMounted(async () => {
   await getOrder();
@@ -148,11 +140,6 @@ useSeoMeta({
         </template>
 
         <hr class="my-8" />
-
-        <div v-if="downloadableItems.length && !orderIsNotCompleted">
-          <DownloadableItems :downloadableItems="downloadableItems" />
-          <hr class="my-8" />
-        </div>
 
         <div>
           <div class="flex justify-between">
