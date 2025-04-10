@@ -30,7 +30,7 @@
       </Transition>
 
       <div class="flex items-center justify-between mt-4">
-        <label class="flex items-center gap-2"><input v-model="userInfo.rememberMe" type="checkbox" />Remember me </label>
+        <!-- <label class="flex items-center gap-2"><input v-model="userInfo.rememberMe" type="checkbox" />Remember me </label> -->
         <div class="font-semibold cursor-pointer text-sm text-primary hover:text-primary" @click="navigate('forgotPassword')" v-if="formView === 'login'">
           Forgot password?
         </div>
@@ -65,7 +65,7 @@ const route = useRoute();
 const router = useRouter();
 const { loginUser, isPending, registerUser, sendResetPasswordEmail, loginClients } = useAuth();
 
-const userInfo = ref({ email: '', password: '', username: '', rememberMe: false });
+const userInfo = ref({ email: '', password: '', username: ''});
 const formView = ref('login');
 const message = ref('');
 const errorMessage = ref('');
