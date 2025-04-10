@@ -64,17 +64,17 @@
 
       <div class="w-full">
         <label for="shipping-first-name">{{ $t('messages.billing.firstName') }}</label>
-        <input id="shipping-first-name" v-model="customer.shipping.firstName" placeholder="John" autocomplete="given-name" type="text" required />
+        <input id="shipping-first-name" v-model="customer.shipping.firstName" placeholder="Ayo" autocomplete="given-name" type="text" required />
       </div>
 
       <div class="w-full">
         <label for="shipping-last-name">{{ $t('messages.billing.lastName') }}</label>
-        <input id="shipping-last-name" v-model="customer.shipping.lastName" placeholder="Doe" autocomplete="family-name" type="text" required />
+        <input id="shipping-last-name" v-model="customer.shipping.lastName" placeholder="Olarondo" autocomplete="family-name" type="text" required />
       </div>
 
       <div class="w-full">
         <label for="shipping-phone">{{ $t('messages.billing.phone') }}</label>
-        <input id="shipping-phone" v-model="customer.shipping.phone" placeholder="+1 234 567 8901" autocomplete="tel" type="tel" />
+        <input id="shipping-phone" v-model="customer.shipping.phone" placeholder="+234 567 890 1001" autocomplete="tel" type="tel" />
       </div>
 
       <div class="w-full">
@@ -84,7 +84,7 @@
 
       <div class="w-full">
         <label for="shipping-address">{{ $t('messages.billing.address1') }}</label>
-        <input id="shipping-address" v-model="customer.shipping.address1" placeholder="O'Connell Street 47" autocomplete="address-line1" type="text" />
+        <input id="shipping-address" v-model="customer.shipping.address1" placeholder="1A main street" autocomplete="address-line1" type="text" />
       </div>
 
       <div class="w-full">
