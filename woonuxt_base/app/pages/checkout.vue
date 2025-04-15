@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import  PaystackPop  from '@paystack/inline-js';
-
 const { t } = useI18n();
 const { query } = useRoute();
 const { cart, isUpdatingCart, paymentGateways } = useCart();
@@ -13,7 +11,7 @@ const isCheckoutDisabled = computed<boolean>(() => isProcessingOrder.value || is
 
 const isInvalidEmail = ref<boolean>(false);
 const isPaid = ref<boolean>(false);
-const paystack = new PaystackPop()
+const { $paystack } = useNuxtApp(); 
 
 onBeforeMount(async () => {
   if (query.cancel_order) window.close();
@@ -24,7 +22,7 @@ const payNow = async () => {
   const amount = stringToInt(cart.value?.total) * 100
   try {
     if (orderInput.value.paymentMethod.id === 'paystack' && paystackKey) {
-      paystack.newTransaction({
+      $paystack.newTransaction({
         key: paystackKey,
         email: customer.value?.billing?.email || viewer.value?.email || '',
         amount: amount, 
