@@ -114,7 +114,7 @@ export function useHelpers() {
 
     for (let index = 0; index < numberOfVariation; index++) {
       const tempArray = [] as string[];
-      product.variations?.nodes.forEach((element) => {
+      product?.variations?.nodes?.forEach((element) => {
         const value = element.attributes?.nodes[index]?.value;
         if (typeof value === 'string') tempArray.push(value);
       });
