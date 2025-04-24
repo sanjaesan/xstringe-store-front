@@ -12,19 +12,19 @@ const { hideCategories } = defineProps({ hideCategories: { type: Boolean, defaul
 const globalProductAttributes = (runtimeConfig?.public?.GLOBAL_PRODUCT_ATTRIBUTES as WooNuxtFilter[]) || [];
 const taxonomies = globalProductAttributes.map((attr) => attr?.slug?.toUpperCase().replace('_', '')) as TaxonomyEnum[];
 const { data } = await useAsyncGql('getAllTerms', { taxonomies: [...taxonomies, TaxonomyEnum.PRODUCTCATEGORY] });
-const terms = data.value?.terms?.nodes || [];
+const terms = data.value?.terms?.nodes;
 
 // Filter out the product category terms and the global product attributes with their terms
-const productCategoryTerms = terms.filter((term) => term.taxonomyName === 'product_cat');
+const productCategoryTerms = terms?.filter((term) => term.taxonomyName === 'product_cat');
 
 // Filter out the color attribute and the rest of the global product attributes
-const attributesWithTerms = globalProductAttributes.map((attr) => ({ ...attr, terms: terms.filter((term) => term.taxonomyName === attr.slug) }));
+const attributesWithTerms = globalProductAttributes.map((attr) => ({ ...attr, terms: terms?.filter((term) => term.taxonomyName === attr.slug) }));
 </script>
 
 <template>
   <aside id="filters">
     <OrderByDropdown class="block w-full md:hidden" />
-    <div class="relative z-30 grid mb-12 space-y-1 divide-y">
+    <div class="relative z-30 grid mb-12 space-y-8 divide-y">
       <PriceFilter />
       <CategoryFilter v-if="!hideCategories" :terms="productCategoryTerms" />
       <div v-for="attribute in attributesWithTerms" :key="attribute.slug">
