@@ -3,7 +3,7 @@ const { t } = useI18n();
 const { query } = useRoute();
 const { cart, isUpdatingCart, paymentGateways } = useCart();
 const { customer, viewer } = useAuth();
-const { orderInput, isProcessingOrder, proccessCheckout } = useCheckout();
+const { orderInput, isProcessingOrder, processCheckout } = useCheckout();
 const paystackKey = "pk_test_149218e43b573fcce2ae9f602ca77fbe7e5a3c54";
 
 const buttonText = ref<string>(isProcessingOrder.value ? t('messages.general.processing') : t('messages.shop.checkoutButton'));
@@ -33,7 +33,7 @@ const payNow = async () => {
           console.log('Paystack payment successful:', transaction);
           isPaid.value = true;
           orderInput.value.transactionId = transaction.reference;
-          proccessCheckout(isPaid.value); 
+          processCheckout(isPaid.value); 
         },
         onCancel: () => {
           console.log('Paystack payment cancelled.');
