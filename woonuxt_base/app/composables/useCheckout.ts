@@ -1,4 +1,4 @@
-import type { CheckoutInput, UpdateCustomerInput, CreateAccountInput } from '#gql';
+import type { CheckoutInput, CreateAccountInput, UpdateCustomerInput } from '#gql';
 
 export function useCheckout() {
   const orderInput = useState<any>('orderInput', () => {
@@ -20,21 +20,27 @@ export function useCheckout() {
     isUpdatingCart.value = true;
 
     try {
+      if (!viewer?.value?.id) {
+        throw new Error('Viewer ID is missing.');
+      }
+
       const { updateCustomer } = await GqlUpdateCustomer({
         input: {
-          id: viewer?.value?.id,
+          id: viewer.value.id,
           shipping: orderInput.value.shipToDifferentAddress ? customer.value.shipping : customer.value.billing,
           billing: customer.value.billing,
         } as UpdateCustomerInput,
       });
 
-      if (updateCustomer) refreshCart();
+      if (updateCustomer) await refreshCart();
     } catch (error) {
-      console.error(error);
+      console.error('Error updating shipping location:', error);
+    } finally {
+      isUpdatingCart.value = false;
     }
   }
 
-  const proccessCheckout = async (isPaid = false) => {
+  const processCheckout = async (isPaid = false): Promise<any> => {
     const { customer, loginUser } = useAuth();
     const router = useRouter();
     const { replaceQueryParam } = useHelpers();
@@ -46,8 +52,6 @@ export function useCheckout() {
     const billing = customer.value?.billing;
     const shipping = shipToDifferentAddress ? customer.value?.shipping : billing;
     const shippingMethod = cart.value?.chosenShippingMethods;
-    const total = cart.value?.total;
-
 
     try {
       let checkoutPayload: CheckoutInput = {
@@ -78,9 +82,9 @@ export function useCheckout() {
 
       const orderId = checkout?.order?.databaseId;
       const orderKey = checkout?.order?.orderKey;
-      
+  
       router.push(`/checkout/order-received/${orderId}/?key=${orderKey}`);
-      
+    
       if ((await checkout?.result) !== 'success') {
         alert('There was an error processing your order. Please try again.');
         window.location.reload();
@@ -90,8 +94,6 @@ export function useCheckout() {
         await refreshCart();
       }
     } catch (error: any) {
-      isProcessingOrder.value = false;
-
       const errorMessage = error?.gqlErrors?.[0].message;
 
       if (errorMessage?.includes('An account is already registered with your email address')) {
@@ -101,15 +103,15 @@ export function useCheckout() {
 
       alert(errorMessage);
       return null;
+    } finally {
+      isProcessingOrder.value = false;
     }
-
-    isProcessingOrder.value = false;
   };
 
   return {
     orderInput,
     isProcessingOrder,
-    proccessCheckout,
+    processCheckout,
     updateShippingLocation,
   };
 }
