@@ -14,21 +14,24 @@
     "@heroicons/vue": "^2.2.0",
     "@paystack/inline-js": "^2.22.2",
     "@vueform/slider": "^2.1.10",
-    "@vueuse/core": "^12.7.0"
+    "@vueuse/core": "^13.1.0"
   },
   "devDependencies": {
     "@iconify-json/ion": "^1.2.2",
-    "@nuxt/icon": "^1.10.3",
-    "@nuxt/image": "1.9.0",
-    "@nuxtjs/i18n": "^8.5.5",
-    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@nuxt/icon": "^1.12.0",
+    "@nuxt/image": "1.10.0",
+    "@nuxtjs/i18n": "^9.5.2",
+    "@nuxtjs/tailwindcss": "^6.13.2",
     "@tailwindcss/typography": "^0.5.16",
-    "nuxt": "^3.15.4",
-    "nuxt-graphql-client": "^0.2.43",
-    "prettier": "^3.5.1",
-    "woonuxt-settings": "^1.0.67"
+    "nuxt": "^3.16.2",
+    "nuxt-graphql-client": "^0.2.45",
+    "prettier": "^3.5.3",
+    "woonuxt-settings": "^1.2.1"
   },
   "overrides": {
     "sharp": "0.32.6"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.40.0"
   }
 }
