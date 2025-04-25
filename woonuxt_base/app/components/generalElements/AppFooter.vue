@@ -12,11 +12,12 @@ const { wishlistLink } = useAuth();
         <LangSwitcher class="mt-8" />
       </div>
       <div class="w-3/7 lg:w-auto">
-        <div class="mb-1 font-semibold">Information</div>
+        <div class="mb-1 font-semibold">Contact</div>
         <div class="text-sm">
-          <a href="/" class="py-1.5 block">Careers</a>
-          <a href="/" class="py-1.5 block">Financing</a>
-          <a href="/" class="py-1.5 block">FAQ's</a>
+          <div class="py-1.5 block"><a href="mailto:sales@xstringe.com">sales@xstringe.com</a></div>
+          <div class="py-1.5 block">+234 8061 292 584</div>
+          <div class="py-1.5 block">14B Pepple Str, computer vilage, Ikeja </div>
+          <social-icons/>
         </div>
       </div>
       
