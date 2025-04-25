@@ -14,8 +14,8 @@ const { wishlistLink } = useAuth();
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">Contact</div>
         <div class="text-sm">
-          <div class="py-1.5 block"><a href="mailto:sales@xstringe.com">sales@xstringe.com</a></div>
-          <div class="py-1.5 block">+234 8061 292 587</div>
+          <div class="py-1.5 block"><a href="mailto:sales@xstringe.com">sales@xstringe.shop</a></div>
+          <div class="py-1.5 block">+234 806 129 2587</div>
           <div class="py-1.5 block">14B Pepple Str, computer vilage, Ikeja </div>
           <social-icons/>
         </div>
