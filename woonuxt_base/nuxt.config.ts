@@ -2,7 +2,7 @@ import { createResolver } from '@nuxt/kit';
 const { resolve } = createResolver(import.meta.url);
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-12-26',
+  compatibilityDate: '2025-03-30',
   future: {
     compatibilityVersion: 4,
   },
@@ -21,7 +21,6 @@ export default defineNuxtConfig({
     defaults: {
       nuxtLink: {
         prefetch: true,
-        prefetchOn: { visibility: false },
       },
     },
   },
@@ -63,8 +62,6 @@ export default defineNuxtConfig({
 
   nitro: {
     routeRules: {
-      '/': { prerender: true },
-      '/products/**': { swr: 3600 },
       '/checkout/order-received/**': { ssr: false },
       '/order-summary/**': { ssr: false },
     },
