@@ -29,7 +29,14 @@ export const useAuth = () => {
         useGqlToken(login.authToken);
         await refreshCart();
       }
-
+      const redirectPath = router.currentRoute.value.query.redirect as string | undefined;
+      if (redirectPath) {
+        router.push(redirectPath);
+      } else {
+        // Or any other default redirect after login
+        router.push('/my-account'); 
+      }
+      
       isPending.value = false;
       return {
         success: true,
