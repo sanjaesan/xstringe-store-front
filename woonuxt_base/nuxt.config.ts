@@ -78,6 +78,9 @@ export default defineNuxtConfig({
       { code: 'pt_BR', file: 'pt-BR.json', name: 'Português 🇧🇷' },
     ],
     langDir: 'locales',
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     defaultLocale: 'en_US',
     strategy: 'no_prefix',
     restructureDir: false,
