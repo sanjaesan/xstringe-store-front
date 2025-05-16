@@ -50,12 +50,26 @@ const payNow = async () => {
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
 const checkEmailOnBlur = (email?: string | null): void => {
-  if (email) isInvalidEmail.value = !emailRegex.test(email);
+  if (email) {
+    isInvalidEmail.value = !emailRegex.test(email);
+    if (!isInvalidEmail.value && !viewer?.value) {
+      orderInput.value.createAccount = true;
+    }
+  } else {
+    orderInput.value.createAccount = false;
+  }
 };
 
 const checkEmailOnInput = (email?: string | null): void => {
   if (email && isInvalidEmail.value) isInvalidEmail.value = !emailRegex.test(email);
+  // Autocheck and show fields while typing if the email starts becoming valid
+  if (email && !isInvalidEmail.value && !viewer?.value) {
+    orderInput.value.createAccount = true;
+  } else if (!email && orderInput.value.createAccount) {
+    orderInput.value.createAccount = false;
+  }
 };
+
 
 const stringToInt = (str: string): number | null => {
   if (typeof str === 'string') {
