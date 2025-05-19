@@ -23,9 +23,9 @@ const { wishlistLink } = useAuth();
             <a href="#" type="button" :class="socialBtnClass" class="twitter" title="Twitter">
               <Icon name="ion:logo-twitter" size="18" :class="iconClass" />
             </a>
-            <!-- <a href="#" type="button" :class="socialBtnClass" class="instagram" title="Instagram">
+            <a href="#" type="button" :class="socialBtnClass" class="instagram" title="Instagram">
               <Icon name="ion:logo-instagram" size="18" :class="iconClass" />
-            </a> -->
+            </a>
           </div>
           <social-icons/>
         </div>
