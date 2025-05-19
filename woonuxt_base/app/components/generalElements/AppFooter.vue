@@ -9,14 +9,24 @@ const { wishlistLink } = useAuth();
       <div class="mr-auto">
         <Logo />
         <WebsiteShortDescription />
-        <LangSwitcher class="mt-8" />
+        <!-- <LangSwitcher class="mt-8" /> -->
       </div>
       <div class="w-3/7 lg:w-auto">
         <div class="mb-1 font-semibold">Contact</div>
         <div class="text-sm">
-          <div class="py-1.5 block"><a href="mailto:sales@xstringe.com">sales@xstringe.shop</a></div>
+          <div class="py-1.5 block">sales@xstringe.shop</div>
           <div class="py-1.5 block">+234 806 129 2587</div>
-          <div class="py-1.5 block">14B Pepple Str, computer vilage, Ikeja </div>
+          <div class="py-1.5 block flex gap-x-3">
+            <a href="#" type="button" :class="socialBtnClass" class="discord" title="Whatsapp">
+              <Icon name="ion:logo-discord" size="18" :class="iconClass" />
+            </a>
+            <a href="#" type="button" :class="socialBtnClass" class="twitter" title="Twitter">
+              <Icon name="ion:logo-twitter" size="18" :class="iconClass" />
+            </a>
+            <!-- <a href="#" type="button" :class="socialBtnClass" class="instagram" title="Instagram">
+              <Icon name="ion:logo-instagram" size="18" :class="iconClass" />
+            </a> -->
+          </div>
           <social-icons/>
         </div>
       </div>
