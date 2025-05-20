@@ -17,14 +17,14 @@ const { wishlistLink } = useAuth();
           <div class="py-1.5 block">sales@xstringe.shop</div>
           <div class="py-1.5 block">+234 806 129 2587</div>
           <div class="py-1.5 block flex gap-x-3">
-            <a href="#" type="button" :class="socialBtnClass" class="discord" title="Whatsapp">
-              <Icon name="ion:logo-discord" size="18" :class="iconClass" />
+            <a href="#" type="button" class="discord" title="Discord">
+              <Icon name="ion:logo-discord" size="18"/>
             </a>
-            <a href="#" type="button" :class="socialBtnClass" class="twitter" title="Twitter">
-              <Icon name="ion:logo-twitter" size="18" :class="iconClass" />
+            <a href="#" type="button" class="twitter" title="Twitter">
+              <Icon name="ion:logo-twitter" size="18"/>
             </a>
-            <a href="#" type="button" :class="socialBtnClass" class="instagram" title="Instagram">
-              <Icon name="ion:logo-instagram" size="18" :class="iconClass" />
+            <a href="#" type="button" class="instagram" title="Instagram">
+              <Icon name="ion:logo-instagram" size="18"/>
             </a>
           </div>
           <social-icons/>
