@@ -30,9 +30,16 @@ const socialLoginProviders = computed(
   () => loginClients.value?.filter((loginClient: LoginClient) => loginClient?.provider !== LoginProviderEnum.PASSWORD) || [],
 );
 
+const props = defineProps({
+  formView: {
+    type: String,
+    default: 'login',
+  },
+});
+
 const labelFallback = (provider?: LoginProviderEnum | null) => {
-  if (!provider) return 'Login';
-  return `Login with ${provider.charAt(0).toUpperCase() + provider.slice(1).toLowerCase()}`;
+  if (!provider) return props.formView === 'register' ? 'Sign up' : 'Login';
+  return `${props.formView === 'register' ? 'Sign up' : 'Login'} with ${provider.charAt(0).toUpperCase() + provider.slice(1).toLowerCase()}`;
 };
 </script>
 
@@ -55,7 +62,6 @@ const labelFallback = (provider?: LoginProviderEnum | null) => {
       </div>
     </div>
 
-    <!-- or continue with email -->
     <div class="flex items-center justify-center gap-4 my-8 leading-none">
       <div class="border-b w-1/3 flex-1"></div>
       <div class="text-gray-400">{{ $t('messages.account.orContinueWithEmail') }}</div>

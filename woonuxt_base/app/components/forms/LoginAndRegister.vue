@@ -4,7 +4,7 @@
       <h1 class="text-xl font-semibold lg:text-3xl">{{ formTitle }}</h1>
     </div>
 
-    <LoginProviders class="my-8" v-if="formView === 'login' || formView === 'register'" />
+    <LoginProviders class="my-8" v-if="formView === 'login' || formView === 'register'" :formView="formView" />
 
     <form class="mt-6" @submit.prevent="handleFormSubmit(userInfo)">
       <div v-if="formView === 'register' || formView === 'forgotPassword'" for="email">
@@ -35,7 +35,6 @@
         </div>
       </div>
 
-      <!-- Login button -->
       <button class="flex items-center justify-center gap-4 my-6 text-lg">
         <LoadingIcon v-if="isPending" stroke="4" size="16" color="#fff" />
         <span>{{ buttonText }}</span>
